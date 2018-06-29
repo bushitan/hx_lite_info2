@@ -1,0 +1,16 @@
+<!--pages/info/info.wxml-->
+<xx-swiper
+    
+></xx-swiper>
+
+<xx-tab
+    list="{{[1,2,3]}}"
+    mode="scroll"    
+    colorunselect="#888" 
+    colorselect="#efa234"  
+    bind:click="clickTag"
+>
+</xx-tab>
+<xx-cover
+>
+</xx-cover>

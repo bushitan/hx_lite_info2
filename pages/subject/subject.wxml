@@ -1,0 +1,13 @@
+<!--pages/subject/subject.wxml-->
+
+<xx-menu
+    list="{{[1,2,3]}}"
+    mode="scroll"    
+    colorunselect="#888" 
+    colorselect="#efa234"  
+    bind:click="clickTag"
+>
+</xx-menu>
+<xx-cover
+>
+</xx-cover>

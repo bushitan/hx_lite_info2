@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "xx-swiper": "../../components/swiper/swiper",
+        "xx-menu": "../../components/menu/menu",
+        "xx-cover": "../../components/cover_subject/cover_subject"
+    }
+}
