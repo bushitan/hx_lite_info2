@@ -3,50 +3,25 @@ Component({
   /**
    * 组件的属性列表
    */
-    properties: {        
-        // 改变颜色
-        mode: {
-            type: String,
-            value: "menu",
-            observer: '_changeMode',
-        },
-        list: {
-            type: Array,
-            value: [],
-            observer: '_changeList',
-        },
-        initindex: {
-            type: String,
-            value: 0,
-            observer: '_changeIndex',
-        },
-        // 改变颜色
-        colorselect: {
-            type: String,
-            value: "#187bbf",
-        },
-        colorunselect: {
-            type: String,
-            value: "#000",
-        },
-        // 改变字体大小
-        sizeselect: {
-            type: String,
-            value: "11pt",
-        },
-        sizeunselect: {
-            type: String,
-            value: "11pt",
-        },
+    properties: {          
   },
 
   /**
    * 组件的初始数据
    */
     data: {
-        MODE_SCROLL: "scroll",
-        MODE_MENU: "menu",
-  },
+        list: [
+            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
+            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
+            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
+            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
+            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
+            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
+            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
+            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
+            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
+        ],    
+    },
 
   /**
    * 组件的方法列表

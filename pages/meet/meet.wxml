@@ -1,2 +1,4 @@
-<!--pages/meet/meet.wxml-->
-<text>pages/meet/meet.wxml</text>
+
+<xx-cover
+>
+</xx-cover>

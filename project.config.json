@@ -23,13 +23,48 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 4,
+			"list": [
+				{
+					"id": -1,
+					"name": "快讯",
+					"pathName": "pages/info/info",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "专栏",
+					"pathName": "pages/subject/subject",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "活动",
+					"pathName": "pages/meet/meet",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "服务",
+					"pathName": "pages/serve/serve",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商圈",
+					"pathName": "pages/roster/roster",
+					"query": ""
+				}
+			]
 		}
 	}
 }

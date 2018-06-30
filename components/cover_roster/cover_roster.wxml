@@ -1,0 +1,18 @@
+<!--components/xx_cover_news/xx_cover_news.wxml-->
+ 
+
+<view class='cover'>
+    <block wx:for="{{list}}" wx:key="item">
+        <view class='node'> 
+            <image class='right' src='{{item.cover_url}}'></image>
+            <view class='left'>
+                <view class='title'>{{item.title}}</view>
+                <view class='time'>{{item.issue_time}}</view>
+                <view class='des'>供应</view>
+                <view class='des'>求购</view>
+            </view>
+        </view>
+        <view style='height:15px'></view>
+        <!-- <view class='line__gray'></view> -->
+    </block>
+</view>

@@ -1,2 +1,47 @@
-<!--pages/roster/roster.wxml-->
-<text>pages/roster/roster.wxml</text>
+<!--pages/subject/subject.wxml-->
+
+<view class="xx_menu ">
+            <view  url="" class="xx_menu__node xx_flex__between" > 
+                <view class=" search   xx_line__hx_left">
+                    <view class="input_form">
+                        <view class="input_box">
+                            <input type="text" placeholder="公司、姓名" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                                <icon type="clear" size="14"></icon>
+                            </view>
+                            <icon class="btn_icon" catchtap="getSearch" type="search" size="14"></icon>
+                        </view>
+                    </view>
+                    
+                    <!-- <view class="btn xx_text__color_hx "  catchtap="getSearch">
+                      <icon class="btn_icon" type="search" size="14"></icon>
+                    </view> -->
+                </view>
+                <view class='xx_flex right_tab'>
+                  <view class=" xx_text__right xx_menu__node_mark xx_text__color_hx"  catchtap="getByAll" hover-class='xx_active'>全部</view>
+                    
+                    <view class=" xx_text__right xx_menu__node_mark"  >|</view>
+
+                    <picker bindchange="sellChange"  range="{{fatherTag.match_list}}" range-key="tag_name">
+                      <view class=" xx_text__right xx_menu__node_mark xx_text__color_hx"  hover-class='xx_active'>供应</view>
+                    </picker>
+                    <view class=" xx_text__right xx_menu__node_mark"  >|</view>
+                    
+                    <picker bindchange="buyChange"  range="{{fatherTag.match_list}}" range-key="tag_name">
+                      <view class=" xx_text__right xx_menu__node_mark xx_text__color_hx"   hover-class='xx_active'>求购</view>
+                    </picker>
+                    <view class=" xx_text__right xx_menu__node_mark"  >|</view>
+
+
+                    <picker bindchange="areaChange"  range="{{areaList}}" range-key="area_name">
+                      <view class=" xx_text__right xx_menu__node_mark xx_text__color_hx"  hover-class='xx_active'>地区</view>
+                    </picker>
+                    
+                </view>
+            </view>
+        </view>
+
+
+<xx-cover
+>
+</xx-cover>
