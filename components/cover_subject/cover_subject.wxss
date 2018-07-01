@@ -1,7 +1,7 @@
 /* components/xx_cover_news/xx_cover_news.wxss */
 
 .cover{
-    padding:15px
+    padding: 0 15px;
 }
 .node{
    display: flex;
@@ -9,22 +9,28 @@
    padding: 10px 0;
 }
 .left,.title ,.time{
-    
     flex-grow:1;
     /* width: 100% */
 }
 .title{
-    min-height: 50px;
+    /* min-height: 50px; */
     padding-right:5px; 
-    font-size: 14pt;
+    font-size: 11pt;
+    margin-bottom: 5px;
+}
+.des{
+    font-size: 9pt;
+    margin-bottom: 5px;
+
 }
 .time{
     font-size: 9pt;
     color: #888;
 }
-.right{
+.image{
+    margin-right:10px; 
     flex:none;
-    width: 100px;
+    width: 64px;
     height: 75px;
 }
 

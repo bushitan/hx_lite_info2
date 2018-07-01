@@ -5,14 +5,18 @@ var APP_ID = "wx51930c31391cc5cc"
 var host_url = 'https://xcx.308308.com/huaxun_2/api/';
 var api_308_url = 'http://127.0.0.1:8000/huaxun_2/api308/';
 
-request = new Request()
+var KEY_SESSION = "session"
+var request = new Request()
 request.init(host_url + 'my/login/', APP_ID)
 
+console.log(request)
 module.exports = {
-    Request: request,
+    Request: request.Request,
     API_INFO_GET_ALL_INDUSTRY: api_308_url + 'cms/get/industry/',
+    API_INFO_GET_CATEGORY_LIST: api_308_url + 'cms/get/category_list/',
+    API_INFO_GET_ARTICLE_LIST: api_308_url + 'cms/get/article_list/',
 
-    KEY_SESSION:"session",
+    KEY_SESSION: KEY_SESSION,
 }
 
 
@@ -101,7 +105,7 @@ function Request() {
                     },
                     'success': function (res) {
                         var object = res.data
-                        wx.setStorageSync(KEY.SESSION, res.data.session)
+                        wx.setStorageSync(KEY_SESSION, res.data.session)
                         // wx.setStorageSync(KEY.USER_INFO, res.data.dict_user)
 
                         GlobalData.apiIsLogin = API_LOGIN_SUCCESS //登陆成功
@@ -127,10 +131,10 @@ function Request() {
         if (data == undefined)
             data = {}
         //session 不存在，设置为false
-        var _session = wx.getStorageSync(KEY.SESSION)
+        var _session = wx.getStorageSync(KEY_SESSION)
         if (!_session) //检查session,不存在，为false
             _session = "false"
-        data['session'] = _session  //每个请求都加session
+        // data['session'] = _session  //每个请求都加session
         data['app_id'] = APP_ID  //每个请求都加session
         wx.request
             ({

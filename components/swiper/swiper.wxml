@@ -1,14 +1,14 @@
-<view class="swiper">
+<view>
     <swiper  
     autoplay="true" interval="5000" duration="1000"
     indicator-dots="true"
     indicator-color="rgba(255, 255, 255, .3)" 
     indicator-active-color="rgba(88, 88, 88, .6)" 
-    circular="true"	>
+    circular="true"	  class="swiper">
         <block wx:for="{{list}}" wx:key="index">
-            <swiper-item>
-                <image 
-                 src="{{item.url}}"  mode="aspectFit" 
+            <swiper-item class="swiper-item">
+                <image  class='image'
+                 src="{{item.url}}"   
                 catchtap="click" data-index="{{index}}"/>
             </swiper-item>
         </block> 

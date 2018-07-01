@@ -1,7 +1,7 @@
 /* components/xx_cover_news/xx_cover_news.wxss */
 
 .cover{
-    padding:15px
+    padding:0 15px ;
 }
 .node{
    display: flex;
@@ -14,9 +14,9 @@
     /* width: 100% */
 }
 .title{
-    min-height: 50px;
+    min-height: 47px;
     padding-right:5px; 
-    font-size: 14pt;
+    font-size: 11pt;
 }
 .time{
     font-size: 9pt;
@@ -25,12 +25,14 @@
 .right{
     flex:none;
     width: 100px;
-    height: 75px;
+    height: 64px;
 }
 
 .line__gray{
     content: "";
-    border-bottom: 1rpx #f0f0f0 solid;
+    /* border-bottom: 1rpx #f0f0f0 solid; */
+    border-bottom: 1rpx #dbdadf solid;
+    
 }
 
 /* .xx_list{

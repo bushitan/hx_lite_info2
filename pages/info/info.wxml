@@ -1,16 +1,26 @@
 <!--pages/info/info.wxml-->
-<xx-swiper
-    
-></xx-swiper>
-
-<xx-tab
-    list="{{[1,2,3]}}"
-    mode="scroll"    
-    colorunselect="#888" 
-    colorselect="#efa234"  
-    bind:click="clickTag"
->
-</xx-tab>
-<xx-cover
->
-</xx-cover>
+<view class='tab'>
+    <xx-swiper
+        
+    ></xx-swiper>
+    <view  class='banner'>
+        <image src='../../images/banner.jpg'  class='banner-image'></image>
+            <!-- list="{{categoryList}}" -->
+        <xx-tab
+            list="{{categoryList}}"
+            mode="scroll"    
+            colorunselect="#f3ab00" 
+            colorselect="#fff"  
+            bind:click="clickTag"
+        >
+        </xx-tab>
+    </view>
+</view>
+<view style='height: 10px'> </view>
+<view class='article'>
+        <!-- list="{{articleList}}" -->
+    <xx-cover
+    >
+    </xx-cover>
+</view>
+<xx-loading></xx-loading>

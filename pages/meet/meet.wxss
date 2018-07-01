@@ -1,1 +1,7 @@
 /* pages/meet/meet.wxss */
+.banner{
+    padding:10px 15px;
+    font-size: 12pt;
+    font-weight: bolder;
+    color: #003a90;
+}

@@ -18,8 +18,6 @@ Component({
             { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
             { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
             { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
-            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
-            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
         ],    
     },
 

@@ -13,7 +13,7 @@ Component({
         list: {
             type: Array,
             value: [
-                { url: "../../images/member_vip_icon.png" },
+                { url: "http://qiniu.308308.com/hx_287_2018_01_22_16_34_29.jpg" },
                 { url: "../../images/member_super_vip_icon.png" },
             ],
             observer: '_changeList',

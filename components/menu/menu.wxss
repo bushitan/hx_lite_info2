@@ -4,9 +4,11 @@
 }
 .node{
     display: flex;
+    justify-content: space-between;
     flex-direction:column;
     align-items: center;
-    width: 25%
+    width: 25%;
+    margin-bottom:10px; 
 }
 .icon{
     width: 32px;

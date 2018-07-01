@@ -1,36 +1,16 @@
 
-.scroll_box{
-    /* width:750rpx; */
-    width:100%;
-     white-space: nowrap;  
-    overflow:scroll;
+.swiper{
+    /* padding: 0 15px 0; */
+    height: 128px;
 }
-.scroll_content{
-    display: flex;
-}
+.swiper-item{
+    /* border-radius: 5px; */
+    height: 128px;
 
-/* tab选择按钮 */
-.tab_scroll{
-    /* padding: 0 15px; */
-    padding: 0 20px 0 0;
-    /* width:100%; */
 }
-.tab_menu{
-    padding: 0 15px;
-     width:100%; 
+.image{
+    /* border-radius: 5px; */
+    width: 100%;
+    /* height: 100%; */
+    height: 128px;
 }
-.tab__node{
-     padding: 11pt 2px; 
-     text-align: center;
-}
- 
-
-.menu{
-    display: flex;
-    justify-content: space-around;
-    width:100%;
-}
-.select_line{
-    width: 10px;
-    margin: auto;
-} 

@@ -4,15 +4,18 @@
     padding:15px
 }
 .node{
-   padding: 10px 0;
+   padding:10px;
+   background-color: #fff;
+   border-radius: 5px;
 }
 .image{
     width: 100%;
+    height: 150px;
 }
 .title{
     /* min-height: 50px; */
     padding-right:5px; 
-    font-size: 14pt;
+    font-size: 11pt;
     text-align: center;
 }
 .time{

@@ -5,11 +5,11 @@
             <block wx:for="{{list}}" wx:key="index">
             <view class='tab_scroll' catchtap="click" data-index="{{index}}">
                 <view wx:if="{{index == initindex}}"  style="color: {{colorselect}};  font-size:{{sizeselect}};line-height: {{sizeselect}};">
-                    <view class="tab__node " >{{item}} </view>
+                    <view class="tab__node " >{{item.name}} </view>
                     <view class='select_line' style="border-bottom: 2px {{colorselect}} solid;"></view>
                 </view>
                 <view  wx:else  style="color: {{colorunselect}};  font-size:{{sizeunselect}} ;line-height: {{sizeunselect}};">
-                   <view class="tab__node " >{{item}} </view>
+                   <view class="tab__node " >{{item.name}} </view>
                 </view>
             </view>  
         </block> 
@@ -20,11 +20,11 @@
     <block wx:for="{{list}}">
         <view class='tab_menu' catchtap="click" data-index="{{index}}">
             <view wx:if="{{index == initindex}}"   style="color: {{colorselect}};  font-size:{{sizeselect}};line-height: {{sizeselect}};">
-               <view class="tab__node " >{{item}} </view>
+               <view class="tab__node " >{{item.name}} </view>
                 <view class='select_line' style="border-bottom: 2px {{colorselect}} solid;"></view>
             </view>
             <view  wx:else   style="color: {{colorunselect}};  font-size:{{sizeunselect}} ;line-height: {{sizeunselect}};">
-                <view class="tab__node " >{{item}} </view>
+                <view class="tab__node " >{{item.name}} </view>
             </view>
         </view>
     </block>  

@@ -1,4 +1,7 @@
 
+<view class='banner page__bg_white'>
+    <view>活动</view>
+</view>
 <xx-cover
 >
 </xx-cover>

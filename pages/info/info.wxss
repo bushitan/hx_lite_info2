@@ -1,1 +1,17 @@
 /* pages/info/info.wxss */
+
+.tab{
+    background-color: #003a90;
+}
+.article{
+    background-color: #fff;
+}
+.banner{
+    position: relative;
+}
+.banner-image{
+    position: absolute;
+    width: 100%;
+    height:100%;
+    /* z-index: -99; */
+}

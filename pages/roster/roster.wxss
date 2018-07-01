@@ -11,6 +11,8 @@
 }
 
 .xx_text__color_hx{
+    font-size: 9pt;
+    line-height: 9pt;
     color:#187bbf !important;
 }
 .xx_menu{
@@ -24,6 +26,9 @@
 }
 .xx_menu__node_mark {
     margin-left:7px!important;
+    color: #888;
+    font-size: 9pt;
+    line-height: 9pt;
 
 }
 .search {

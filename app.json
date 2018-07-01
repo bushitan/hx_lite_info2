@@ -8,14 +8,14 @@
     "pages/logs/logs"
   ],
     "window": {
-        "navigationBarBackgroundColor": "#151515",
+        "navigationBarBackgroundColor": "#2f5dbf",
         "backgroundTextStyle": "light",
         "navigationBarTitleText": "华讯生物圈",
         "navigationBarTextStyle": "white",
         "enablePullDownRefresh": false
     },
     "tabBar": {
-        "backgroundColor": "#fcfcfc",
+        "backgroundColor": "#fff",
         "color": "#b3b3b3",
         "selectedColor": "#212121",
         "borderStyle": "white",
