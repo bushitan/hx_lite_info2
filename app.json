@@ -8,7 +8,7 @@
     "pages/logs/logs"
   ],
     "window": {
-        "navigationBarBackgroundColor": "#2f5dbf",
+        "navigationBarBackgroundColor": "#1c82d4",
         "backgroundTextStyle": "light",
         "navigationBarTitleText": "华讯生物圈",
         "navigationBarTextStyle": "white",
@@ -23,32 +23,32 @@
             {
                 "pagePath": "pages/info/info",
                 "text": "快讯",
-                "iconPath": "images/info_unselect.png",
-                "selectedIconPath": "images/info_select.png"
+                "iconPath": "images/11.png",
+                "selectedIconPath": "images/12.png"
             },
             {
                 "pagePath": "pages/subject/subject",
                 "text": "专栏",
-                "iconPath": "images/match_unselect1.png",
-                "selectedIconPath": "images/match_select1.png"
+                "iconPath": "images/21.png",
+                "selectedIconPath": "images/22.png"
             },
             {
                 "pagePath": "pages/meet/meet",
                 "text": "活动",
-                "iconPath": "images/meet_unselect.png",
-                "selectedIconPath": "images/meet_select.png"
+                "iconPath": "images/31.png",
+                "selectedIconPath": "images/32.png"
             },
             {
                 "pagePath": "pages/serve/serve",
                 "text": "服务",
-                "iconPath": "images/my_unselect.png",
-                "selectedIconPath": "images/my_select.png"
+                "iconPath": "images/41.png",
+                "selectedIconPath": "images/42.png"
             },
             {
                 "pagePath": "pages/roster/roster",
                 "text": "商圈",
-                "iconPath": "images/roster_unselect.png",
-                "selectedIconPath": "images/roster_select.png"
+                "iconPath": "images/51.png",
+                "selectedIconPath": "images/52.png"
             }
         ]
     },

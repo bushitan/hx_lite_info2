@@ -1,7 +1,10 @@
 
 <view class='banner page__bg_white'>
-    <view>活动</view>
+    <view class='line'></view>
+    <label>活动</label>
 </view>
 <xx-cover
+    list="{{articleList}}"
 >
 </xx-cover>
+<xx-loading more="{{false}}"></xx-loading>

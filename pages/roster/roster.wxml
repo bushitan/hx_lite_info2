@@ -43,5 +43,8 @@
 
 
 <xx-cover
+    list="{{rosterList}}"
 >
 </xx-cover>
+
+<xx-loading more="{{false}}"></xx-loading>

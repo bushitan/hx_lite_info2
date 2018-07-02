@@ -11,10 +11,10 @@ Page({
     },
 
     onInit(options){
-        
+
         API.Request({
             url: API.API_INFO_GET_ALL_INDUSTRY,
-            success:function(res){
+            success: function (res) {
                 console.log(res.data)
                 GP.setData({
 
@@ -22,6 +22,20 @@ Page({
                 GP.getCategoryList(1)
             },
         })
+     
+        //临时文章
+        API.Request({
+            url: "https://xcx.308308.com/huaxun_2/api/article/index/?tag_id=21&start_index=0&end_index=10&app_id=wx51930c31391cc5cc",
+            success: function (res) {
+                console.log(res.data)
+                GP.setData({
+                    articleList: res.data.article_list,
+                })
+                GP.getCategoryList(1)
+            },
+        })
+
+        
     },
 
     getCategoryList(industry_id){
@@ -41,7 +55,7 @@ Page({
 
     //获取文章列表
     getArticleList(industry_id, category_id, rows, page_no){
-
+      
 
         API.Request({
             url: API.API_INFO_GET_ARTICLE_LIST,

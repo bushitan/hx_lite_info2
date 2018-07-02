@@ -11,13 +11,10 @@ Component({
    */
     data: {
         list: [
-            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
-            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
-            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
-            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
-            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
-            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
-            { url: "/pages/logs/logs", icon: '../../images/info_select.png', des: "专栏" },
+    { url: "/pages/logs/logs", icon: '../../images/subject_1.png', des: "专区",style:"green" },
+    { url: "/pages/logs/logs", icon: '../../images/subject_2.png', des: "榜单", style: "yellow" },
+    { url: "/pages/logs/logs", icon: '../../images/subject_3.png', des: "分类", style: "orange" },
+    { url: "/pages/logs/logs", icon: '../../images/subject_4.png', des: "书架", style: "blue" },     
         ],    
     },
 

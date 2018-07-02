@@ -1,5 +1,6 @@
 /* pages/subject/subject.wxss */
 .menu{
     /* background: #fff; */
-     padding: 10px 0; 
+    padding: 10px 0 0; 
+    border-bottom: 1rpx solid #dddddd;
 }

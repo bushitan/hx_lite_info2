@@ -23,7 +23,7 @@
                 <view class='title'>{{item.title}}</view>
                 <view class='time'>{{item.issue_time}}</view>
             </view>
-            <image class='right' src='{{item.cover_url}}'></image>
+            <image class='right' src='{{item.cover}}'></image>
         </view>
         <view class='line__gray'></view>
     </block>

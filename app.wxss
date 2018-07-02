@@ -15,3 +15,6 @@ page{
 .page__bg_white{
     background-color: #fff;
 }
+.page__bg_zfbblue{
+    background-color: #1c82d4;
+}

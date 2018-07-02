@@ -1,26 +1,37 @@
 <!--pages/info/info.wxml-->
 <view class='tab'>
-    <xx-swiper
-        
-    ></xx-swiper>
-    <view  class='banner'>
-        <image src='../../images/banner.jpg'  class='banner-image'></image>
+   
+   <view  class='banner'>
+        <!-- <image src='../../images/banner.jpg'  class='banner-image'></image> -->
             <!-- list="{{categoryList}}" -->
+            
+            <!-- colorunselect="#1c82d4" 
+            colorselect="#f6c654"   -->
         <xx-tab
-            list="{{categoryList}}"
             mode="scroll"    
-            colorunselect="#f3ab00" 
-            colorselect="#fff"  
+            colorunselect="#888" 
+            colorselect="#1c82d4"  
             bind:click="clickTag"
         >
         </xx-tab>
     </view>
+    <view style='height: 55px'> </view>
+    <xx-swiper
+        
+    ></xx-swiper>
+   
 </view>
 <view style='height: 10px'> </view>
 <view class='article'>
         <!-- list="{{articleList}}" -->
     <xx-cover
+        list="{{articleList}}"
     >
     </xx-cover>
 </view>
-<xx-loading></xx-loading>
+<xx-loading more="{{false}}"></xx-loading>
+
+<!-- 2f5dbf  v1.2 蓝
+    1c82d4 支付宝蓝
+
+ -->

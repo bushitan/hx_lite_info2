@@ -1,17 +1,21 @@
 /* pages/info/info.wxss */
 
 .tab{
-    background-color: #003a90;
+    /* background-color: #1c82d4; */
 }
 .article{
     background-color: #fff;
 }
 .banner{
-    position: relative;
+    /* position: relative; */
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+    border-bottom: 1rpx solid #dddddd;
 }
-.banner-image{
+/* .banner-image{
     position: absolute;
     width: 100%;
     height:100%;
-    /* z-index: -99; */
-}
+} */

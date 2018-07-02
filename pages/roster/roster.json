@@ -2,6 +2,7 @@
     "usingComponents": {
         "xx-swiper": "../../components/swiper/swiper",
         "xx-menu": "../../components/menu/menu",
+        "xx-loading": "../../components/loading/loading",
         "xx-cover": "../../components/cover_roster/cover_roster"
     }
 }

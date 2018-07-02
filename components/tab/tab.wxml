@@ -9,7 +9,7 @@
                     <view class='select_line' style="border-bottom: 2px {{colorselect}} solid;"></view>
                 </view>
                 <view  wx:else  style="color: {{colorunselect}};  font-size:{{sizeunselect}} ;line-height: {{sizeunselect}};">
-                   <view class="tab__node " >{{item.name}} </view>
+                   <view class="tab__node " >{{item.name}}</view>
                 </view>
             </view>  
         </block> 

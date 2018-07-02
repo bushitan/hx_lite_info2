@@ -30,13 +30,16 @@
 .image{
     margin-right:10px; 
     flex:none;
-    width: 64px;
-    height: 75px;
+    width: 100px;
+     height: 75px; 
+    /* width: 64px;
+    height: 75px; */
 }
 
 .line__gray{
     content: "";
-    border-bottom: 1rpx #f0f0f0 solid;
+    /* border-bottom: 1rpx #f0f0f0 solid; */
+    border-bottom: 1rpx #dbdadf solid;
 }
 
 /* .xx_list{

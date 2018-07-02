@@ -5,10 +5,10 @@
             <image class='image' src='{{item.cover_url}}' mode='widthFix'></image>
             <view class='left'>
                 <view class='title'>{{item.title}}</view>
-                <view class='des'>{{item.title}}</view>
+                <!-- <view class='des'>{{item.des}}</view> -->
                 <view class='time'>{{item.issue_time}}</view>
             </view>
         </view>
-        <view class='line__gray'></view>
+        <!-- <view class='line__gray'></view> -->
     </block>
 </view>

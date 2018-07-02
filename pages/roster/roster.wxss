@@ -13,7 +13,7 @@
 .xx_text__color_hx{
     font-size: 9pt;
     line-height: 9pt;
-    color:#187bbf !important;
+    color:#1c82d4 !important;
 }
 .xx_menu{
     margin-bottom:5px; 
@@ -32,8 +32,8 @@
 
 }
 .search {
-    border-left:2px #187bbf solid;
-    padding-left:5px;
+    /* border-left:2px #1c82d4 solid; */
+    /* padding-left:5px; */
 
 
     flex-basis: 180px;

@@ -16,3 +16,4 @@
     >
     </xx-cover>
 </view>
+<xx-loading more="{{false}}"></xx-loading>
