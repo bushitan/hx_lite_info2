@@ -1,0 +1,67 @@
+<!--pages/member/member.wxml-->
+
+
+<!-- <view class='info'>
+    <view class='info_title'>会员介绍</view>
+
+</view> -->
+
+
+<view class='pay'>
+    <view class='title'>
+        <view class='title_title'>会员支付</view>
+        <view class='title_des'>服务协议</view>
+    </view>
+    <view style='height:15px;'></view>
+    <view>
+        <swiper  
+            autoplay="true" interval="5000" duration="1000"
+            indicator-dots="true"
+            indicator-color="rgba(255, 255, 255, .3)" 
+            indicator-active-color="rgba(88, 88, 88, .6)" 
+            circular="true"	  class="swiper">
+                <block wx:for="{{list}}" wx:key="index">
+                    <swiper-item class="swiper-item">
+                        <image  class='image'
+                        src="{{item.url}}"   
+                        catchtap="click" data-index="{{index}}"/>
+                    </swiper-item>
+                </block> 
+        </swiper>
+    </view>
+    <radio-group >
+        <view class='choice'>
+            <radio>短息会员</radio>
+            <radio>网站会员</radio>
+        </view>
+    </radio-group>
+
+    <view style='height:15px;'></view>
+    <view class='des'>
+        <view class='des_title'>年费订阅</view>
+        <view class='des_price'>￥ <label>232</label></view>
+    </view>
+    <view style='height:15px;'></view>
+    <view class='btn'>开通会员</view>
+    <view style='height:25px;'></view>
+    <view class='line__gray'></view>
+    <view style='height:25px;'></view>
+</view>
+
+<view class='summary'>
+    <view class='summary_title'>会员权益</view>
+    <view style='height:25px;'></view>
+    <view class='node'>
+        <view class='icon'>
+            <image class='icon_image' src='../../images/mine_fill.png'></image>
+        </view>
+        <view class='summary_des'>长汀2000+ 场优质live</view>
+    </view>
+    <view style='height:25px;'></view>
+    <view class='node'>
+        <view class='icon'>
+            <image class='icon_image' src='../../images/mine_fill.png'></image>
+        </view>
+        <view class='summary_des'>长汀2000+ 场优质live</view>
+    </view>
+</view>

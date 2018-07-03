@@ -18,13 +18,13 @@
 
 <view class='cover'>
     <block wx:for="{{list}}" wx:key="item">
-        <view class='node'> 
+        <navigator url='/pages/article/article?article_id={{item.article_id}}' class='node'> 
             <view class='left'>
                 <view class='title'>{{item.title}}</view>
                 <view class='time'>{{item.issue_time}}</view>
             </view>
             <image class='right' src='{{item.cover}}'></image>
-        </view>
+        </navigator>
         <view class='line__gray'></view>
     </block>
 </view>

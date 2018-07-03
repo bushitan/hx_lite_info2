@@ -1,28 +1,25 @@
-// pages/roster/roster.js
+// pages/article/article.js
 var API = require('../../utils/api.js');
-var GP
+var GP 
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        // user
-    },
-    getUserInfo(res){
-        console.log(res)
+    
     },
 
-    setUserInfo(roster_id) {
+    getArticle(article_id){
         API.Request({
-            url: "https://xcx.308308.com/huaxun_2/api/roster/get/id/",
+            url: "https://xcx.308308.com/huaxun_2/api/article/get/id/",
             data: {
-                roster_id: roster_id,
+                article_id: article_id,
             },
             success: function (res) {
                 console.log(res.data)
                 GP.setData({
-                    roster: res.data.roster_dict,
+                    article: res.data.article_dict,
                 })
             },
         })
@@ -32,16 +29,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        GP = this
-
-        var roster_id = options.roster_id
-        // GP.getRoster(roster_id)
+        GP = this 
+        var article_id = options.article_id
+        GP.getArticle(article_id)
     },
 
     /**
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+    
     }
 })

@@ -1,0 +1,4 @@
+<!--pages/article/article.wxml-->
+<article-text
+    article="{{article}}"
+></article-text>

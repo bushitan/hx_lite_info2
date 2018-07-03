@@ -2,11 +2,11 @@
 
 <view class='cover'>
     <block wx:for="{{list}}" wx:key="item">
-        <view class='node'> 
+       <navigator url='/pages/article/article?article_id={{item.article_id}}' class='node'> 
             <image class='image' src='{{item.cover}}' mode='widthFit'></image>
             <view class='title'>{{item.title}}</view>
             <view class='time'>{{item.issue_time}}</view>
-        </view>
+        </navigator>
         <!-- <view class='line__gray'></view> -->
         <view style='height:10px'></view>
     </block>

@@ -4,7 +4,10 @@
 <view class="xx_menu ">
     <view  url="" class="xx_menu__node page__bg_zfbblue logo">
         <view class="xx_menu__node_logo" catchtap="clickLogo">
-            <image class='logo_image' src="../../images/my_select.png"></image>
+            <button open-type='getUserInfo' class='login' bindgetuserinfo="getUserInfo">
+                <image class='login_bg' src="../../images/click_login.png"></image>
+            </button>
+            <!-- <image class='logo_image' src="../../images/click_login.png"></image> -->
         </view>
         <view class="xx_menu__node_name">
                 <view class="xx_text__title">{{name}}</view>
@@ -15,13 +18,13 @@
 
 <view  style='height:10px;' ></view>   
 <view class="xx_menu ">
-    <view catchtap="toDiscount" url="" class="xx_menu__node tab " hover-class="xx_active">
+    <navigator url="/pages/member/member" class="xx_menu__node tab " hover-class="xx_active">
         <view class="xx_menu__node_icon">
             <image src="../../images/my_vip.png"></image>
         </view>
         <view class="xx_menu__node_name">会员</view>
         <view class=" xx_menu__node_access xx_text__right"></view>
-    </view>
+    </navigator>
 
     <view catchtap="toDiscount" url="" class="xx_menu__node tab " hover-class="xx_active">
         <view class="xx_menu__node_icon">

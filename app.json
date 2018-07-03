@@ -1,6 +1,9 @@
 {
   "pages":[
     "pages/info/info",
+    "pages/member/member",
+    "pages/roster_info/roster_info",
+    "pages/article/article",
     "pages/subject/subject",
     "pages/meet/meet",
     "pages/serve/serve",

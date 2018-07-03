@@ -7,13 +7,15 @@ Page({
      * 页面的初始数据
      */
     data: {
-        // user
-    },
-    getUserInfo(res){
-        console.log(res)
+        list: [
+            { url: "../../images/member_1.jpg" },
+            { url: "../../images/member_2.jpg" },
+           
+            ]
+        
     },
 
-    setUserInfo(roster_id) {
+    getRoster(roster_id) {
         API.Request({
             url: "https://xcx.308308.com/huaxun_2/api/roster/get/id/",
             data: {
@@ -33,9 +35,8 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-
-        var roster_id = options.roster_id
-        // GP.getRoster(roster_id)
+        var article_id = 1508
+        // GP.getRoster(21)
     },
 
     /**

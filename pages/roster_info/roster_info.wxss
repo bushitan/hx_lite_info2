@@ -1,0 +1,43 @@
+/* pages/roster_info/roster_info.wxss */
+
+.header{
+    position: relative;
+}
+.bg_image{
+    display:block;
+    position: relative;
+    width: 750rpx;
+    height:420rpx;
+}
+page{
+    background-color: #ffffff;
+}
+.logo{
+    position: absolute;
+    top: 310rpx;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.logo_image{
+    width: 160rpx;
+    height:160rpx;
+    border: 3px solid #fff;
+    background-color: #eee;
+}
+
+.summary{
+    padding: 15px 30px 15px 50px ;
+    font-size: 11pt;
+}
+.node{
+    display: flex;
+    margin-bottom: 10px;
+}
+.title{
+    flex: 0 0 60px;  
+    color:#888;
+}
+.des{
+
+}
