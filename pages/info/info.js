@@ -8,7 +8,12 @@ Page({
      */
     data: {
         categoryList:[],
-        industryID:1,
+        industryID:null,
+    },
+    change(){
+        wx.redirectTo({
+            url: '/pages/industry/industry',
+        })
     },
 
     onInit(options){
@@ -32,15 +37,15 @@ Page({
         GP.getCategoryList(GP.data.industryID)
      
         //临时文章
-        API.Request({
-            url: "https://xcx.308308.com/huaxun_2/api/article/index/?tag_id=21&start_index=0&end_index=10&app_id=wx51930c31391cc5cc",
-            success: function (res) {
-                console.log(res.data)
-                GP.setData({
-                    articleList: res.data.article_list,
-                })
-            },
-        })
+        // API.Request({
+        //     url: "https://xcx.308308.com/huaxun_2/api/article/index/?tag_id=21&start_index=0&end_index=10&app_id=wx51930c31391cc5cc",
+        //     success: function (res) {
+        //         console.log(res.data)
+        //         GP.setData({
+        //             articleList: res.data.article_list,
+        //         })
+        //     },
+        // })
 
     },
 
@@ -92,6 +97,17 @@ Page({
      */
     onLoad: function (options) {
         GP = this
+        if (options.industry_id == undefined){
+            var industry_id = wx.getStorageSync(API.KEY_INDUSTRYID)
+            if (industry_id == ""){
+                GP.change()
+                return
+            }
+            else
+                GP.setData({ industryID: industry_id})
+        }else
+            GP.setData({ industryID: options.industry_id })
+        
         wx.showToast({
             icon:"loading",
             title: '登陆中',

@@ -16,7 +16,7 @@ Page({
             method: "POST",
             data: {
                 uid: 99622, 
-                article_id: 220634,
+                article_id: article_id,
             },
             success: function (res) {
                 console.log(res.data)

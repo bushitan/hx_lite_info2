@@ -37,6 +37,29 @@ Page({
         })
     },
 
+    onInit(){
+        // 1 验证openid是否已经登录
+        // API.Request({
+        //     url: "https://xcx.308308.com/huaxun_2/api/roster/get/id/",
+        //     data: {
+        //         roster_id: roster_id,
+        //     },
+        //     success: function (res) {
+        //         console.log(res.data)
+        //         GP.setData({
+        //             roster: res.data.roster_dict,
+        //         })
+        //     },
+        // })
+
+        // 2 用户登录，获取用户信息，并展示
+        wx.hideLoading()
+        GP.setData({
+            loginStatus:2
+        })
+    },
+
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -45,7 +68,9 @@ Page({
         wx.showLoading({
             title: '登陆中',
         })
-        var roster_id = options.roster_id
+
+        GP.onInit()
+        // var roster_id = options.roster_id
         // GP.getRoster(roster_id)
     },
     onShow(){

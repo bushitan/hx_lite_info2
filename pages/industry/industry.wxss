@@ -1,0 +1,10 @@
+/* pages/industry/industry.wxss */
+.title{
+    font-size: 14pt;
+    font-weight: bolder;
+    padding: 50px 0 30px;
+    text-align: center;
+}
+.btn{
+    padding: 0 15px;
+}

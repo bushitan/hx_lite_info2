@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/info/info",
+    "pages/industry/industry",
     "pages/member/member",
     "pages/roster_info/roster_info",
     "pages/article/article",

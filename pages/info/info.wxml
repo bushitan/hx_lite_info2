@@ -32,6 +32,8 @@
 </view>
 <xx-loading more="{{false}}"></xx-loading>
 
+
+<button size="mini" class='change' catchtap='change'>行业</button>
 <!-- 2f5dbf  v1.2 蓝
     1c82d4 支付宝蓝
 

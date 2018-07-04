@@ -8,6 +8,7 @@ var XCX_308_URL = 'http://127.0.0.1:8000/huaxun_2/api308/';
 var KEY_OPENID = "openid"
 var KEY_SESSION = "session"
 var KEY_TOKEN = "token"
+var KEY_INDUSTRYID = "industryid"
 var request = new Request()
 request.init(XCX_308_URL + 'token/login/', APP_ID)
 
@@ -23,8 +24,9 @@ module.exports = {
     API_INFO_GET_CATEGORY_LIST: addToken(API_308_URL + 'cms/articles/get_categories_by_industry/'),
     API_INFO_GET_ARTICLE: addToken(API_308_URL + 'cms/articles/get_article/'),
     API_INFO_GET_ARTICLE_LIST: XCX_308_URL + 'cms/get/article_list/',
-    
+
     KEY_SESSION: KEY_SESSION,
+    KEY_INDUSTRYID: KEY_INDUSTRYID,
 }
 
 

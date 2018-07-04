@@ -1,0 +1,8 @@
+<!--pages/industry/industry.wxml-->
+<view class='title'>行业选择</view>
+<block wx:for="{{industryList}}" wx:key="index">
+    <view class='btn'>
+        <button catchtap='click' data-industry_id="{{item.industry_id}}">{{item.industry_name}}</button>
+    </view>
+    <view style='height:15px;'></view>
+</block>
