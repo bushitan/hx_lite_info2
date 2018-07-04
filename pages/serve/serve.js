@@ -8,7 +8,16 @@ Page({
      */
     data: {
         // user
+        loginStatus:1, // 1 登陆中 2已登录 3未登录
+        pageStatus:1, //1 引导,2 老,3 新
     },
+
+    setPageStatus(e){
+        console.log(e)
+        var status = e.currentTarget.dataset.value
+        GP.setData({ pageStatus: status})
+    },
+
     getUserInfo(res){
         console.log(res)
     },
@@ -33,9 +42,20 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-
+        wx.showLoading({
+            title: '登陆中',
+        })
         var roster_id = options.roster_id
         // GP.getRoster(roster_id)
+    },
+    onShow(){
+        // wx.showModal({
+        //     title: '请选择',
+        //     content: '',
+        // })
+        // wx.showActionSheet({
+        //     itemList: ["已有账号","新用户"],
+        // })
     },
 
     /**

@@ -12,16 +12,30 @@ Page({
 
     getArticle(article_id){
         API.Request({
-            url: "https://xcx.308308.com/huaxun_2/api/article/get/id/",
+            url: API.API_INFO_GET_ARTICLE,
+            method: "POST",
             data: {
-                article_id: article_id,
+                uid: 99622, 
+                article_id: 220634,
             },
             success: function (res) {
                 console.log(res.data)
+                
+                if (res.data.status.code == 11107){
+                    GP.noPower()
+                    return
+                }
                 GP.setData({
-                    article: res.data.article_dict,
+                    article: res.data.data,
                 })
             },
+        })
+    },
+
+    noPower(){
+        wx.showModal({
+            title: '权限不足',
+            content: '',
         })
     },
 

@@ -11,10 +11,28 @@ Page({
             { url: "../../images/member_1.jpg" },
             { url: "../../images/member_2.jpg" },
            
-            ]
+        ],
+        checked:1,
+        price:3500,
         
     },
-
+    radioChange(e){
+        var checked = e.detail.value
+        GP.setData({
+            checked: checked,
+            price: checked==1?3500:1500,
+        })
+       
+    },
+    createPayPage(){
+        wx.requestPayment({
+            timeStamp: '',
+            nonceStr: '',
+            package: '',
+            signType: '',
+            paySign: '',
+        })
+    },
     getRoster(roster_id) {
         API.Request({
             url: "https://xcx.308308.com/huaxun_2/api/roster/get/id/",

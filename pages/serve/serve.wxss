@@ -1,4 +1,20 @@
+/* 未登录 */
+.title{
+    font-size: 14pt;
+    font-weight: bolder;
+    text-align: center;
+    padding: 100px 0 30px;
+}
+.des{
+    padding: 0 15px;
 
+}
+.input{
+    padding: 0 15px;
+    background-color: #fff;
+}
+
+/* 已登录 */
 .login{
     position: relative;
     width:49px; 

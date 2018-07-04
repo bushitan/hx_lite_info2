@@ -2,20 +2,28 @@
 
 
 var APP_ID = "wx51930c31391cc5cc"
-var host_url = 'https://xcx.308308.com/huaxun_2/api/';
-var api_308_url = 'http://127.0.0.1:8000/huaxun_2/api308/';
-
+// var host_url = 'https://xcx.308308.com/huaxun_2/api/';
+var API_308_URL = 'https://api.308308.com/';
+var XCX_308_URL = 'http://127.0.0.1:8000/huaxun_2/api308/';
+var KEY_OPENID = "openid"
 var KEY_SESSION = "session"
+var KEY_TOKEN = "token"
 var request = new Request()
-request.init(host_url + 'my/login/', APP_ID)
+request.init(XCX_308_URL + 'token/login/', APP_ID)
 
 console.log(request)
+function addToken(url){
+    return url + "?access_token=" + wx.getStorageSync(KEY_TOKEN)
+}
 module.exports = {
     Request: request.Request,
-    API_INFO_GET_ALL_INDUSTRY: api_308_url + 'cms/get/industry/',
-    API_INFO_GET_CATEGORY_LIST: api_308_url + 'cms/get/category_list/',
-    API_INFO_GET_ARTICLE_LIST: api_308_url + 'cms/get/article_list/',
-
+    //获取行业大类
+    API_INFO_GET_ALL_INDUSTRY: addToken(API_308_URL + 'cms/articles/get_all_industry/'),
+    //获取行业大类下的子栏目
+    API_INFO_GET_CATEGORY_LIST: addToken(API_308_URL + 'cms/articles/get_categories_by_industry/'),
+    API_INFO_GET_ARTICLE: addToken(API_308_URL + 'cms/articles/get_article/'),
+    API_INFO_GET_ARTICLE_LIST: XCX_308_URL + 'cms/get/article_list/',
+    
     KEY_SESSION: KEY_SESSION,
 }
 
@@ -95,17 +103,19 @@ function Request() {
     function _RequestLogin() {
         wx.login({
             success: function (res) {
-                // var _session = wx.getStorageSync(KEY.SESSION)
+                var _session = wx.getStorageSync(KEY_SESSION)
                 _Request({
                     'live': API_LIVE,
                     'url': loginUrl,
                     'data': {
                         js_code: res.code,
-                        // session: _session,
+                        session: _session,
                     },
                     'success': function (res) {
                         var object = res.data
+                        wx.setStorageSync(KEY_OPENID, res.data.openid)
                         wx.setStorageSync(KEY_SESSION, res.data.session)
+                        wx.setStorageSync(KEY_TOKEN, res.data.token)
                         // wx.setStorageSync(KEY.USER_INFO, res.data.dict_user)
 
                         GlobalData.apiIsLogin = API_LOGIN_SUCCESS //登陆成功
@@ -140,6 +150,7 @@ function Request() {
             ({
                 url: options.url,
                 method: options.method || "GET",
+                header: options.header || {'content-type': 'application/json'},
                 data: data,
                 success: function (res) {
                     if (options.success != undefined)

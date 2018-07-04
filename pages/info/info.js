@@ -8,20 +8,28 @@ Page({
      */
     data: {
         categoryList:[],
+        industryID:1,
     },
 
     onInit(options){
 
-        API.Request({
-            url: API.API_INFO_GET_ALL_INDUSTRY,
-            success: function (res) {
-                console.log(res.data)
-                GP.setData({
+        // API.Request({
+        //     url: API.API_INFO_GET_CATEGORY_LIST,
+        //     method:"POST",
+        //     data: { industry_id:1},
+        //     // header: {
+        //     //     'content-type': 'application/x-www-form-urlencoded' // 默认值
+        //     // },
+            
+        //     success: function (res) {
+        //         console.log(res.data)
+        //         // GP.setData({
 
-                })
-                GP.getCategoryList(1)
-            },
-        })
+        //         // })
+        //         // GP.getCategoryList(1)
+        //     },
+        // })
+        GP.getCategoryList(GP.data.industryID)
      
         //临时文章
         API.Request({
@@ -31,36 +39,35 @@ Page({
                 GP.setData({
                     articleList: res.data.article_list,
                 })
-                GP.getCategoryList(1)
             },
         })
 
-        
     },
 
     getCategoryList(industry_id){
 
         API.Request({
             url: API.API_INFO_GET_CATEGORY_LIST,
+            method: "POST",
             data: { industry_id: industry_id},
             success: function (res) {
                 console.log(res.data)
                 GP.setData({
-                    categoryList: res.data.category_list
+                    categoryList: res.data.data.categories
                 })
-                GP.getArticleList(1, 3, 20, 1)
+                GP.getArticleList( 3, 20, 1)
             },
         })
     },
 
     //获取文章列表
-    getArticleList(industry_id, category_id, rows, page_no){
+    getArticleList( category_id, rows, page_no){
       
 
         API.Request({
             url: API.API_INFO_GET_ARTICLE_LIST,
             data: { 
-                industry_id: industry_id,
+                industry_id: GP.data.industryID,
                 category_id: category_id,
                 rows: rows,
                 page_no: page_no,
@@ -75,14 +82,22 @@ Page({
             },
         })
     },
+    clickTag(e){
+        var index = e.detail
+        GP.getArticleList(GP.data.categoryList[index].category_id, 20, 1)
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
         GP = this
+        wx.showToast({
+            icon:"loading",
+            title: '登陆中',
+        })
         GP.onInit()
-        GP.getArticleList(1, 3, 20, 1)
+        // GP.getArticleList(1, 3, 20, 1)
     },
 
     /**

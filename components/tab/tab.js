@@ -12,13 +12,14 @@ Component({
         },
         list: {
             type: Array,
-            value: [
-                { name: "头条" },
-                { name: "短信" },
-                { name: "评述" },
-                { name: "数据" },
-                { name: "月刊" },                
-            ],
+            value:[],
+            //  [
+            //     { name: "头条" },
+            //     { name: "短信" },
+            //     { name: "评述" },
+            //     { name: "数据" },
+            //     { name: "月刊" },                
+            // ],
             observer: '_changeList',
         },
         initindex: {

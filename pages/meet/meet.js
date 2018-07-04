@@ -25,7 +25,7 @@ Page({
             success: function (res) {
                 console.log(res.data)
                 GP.setData({
-                    articleList:res.data.article_list
+                    articleList:[res.data.article_list[0]]
                 })
                 // GP.getCategoryList(1)
             },

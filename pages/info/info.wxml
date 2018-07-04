@@ -8,6 +8,7 @@
             <!-- colorunselect="#1c82d4" 
             colorselect="#f6c654"   -->
         <xx-tab
+            list="{{categoryList}}"
             mode="scroll"    
             colorunselect="#888" 
             colorselect="#1c82d4"  

@@ -18,3 +18,8 @@ page{
 .page__bg_zfbblue{
     background-color: #1c82d4;
 }
+
+.line__gray{
+    content: "";
+    border-bottom: 1rpx #f0f0f0 solid;
+}

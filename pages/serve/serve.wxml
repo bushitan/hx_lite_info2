@@ -1,36 +1,95 @@
 
 
 <!-- <view  style='height:10px;' ></view>    -->
-<view class="xx_menu ">
-    <view  url="" class="xx_menu__node page__bg_zfbblue logo">
-        <view class="xx_menu__node_logo" catchtap="clickLogo">
-            <button open-type='getUserInfo' class='login' bindgetuserinfo="getUserInfo">
-                <image class='login_bg' src="../../images/click_login.png"></image>
-            </button>
-            <!-- <image class='logo_image' src="../../images/click_login.png"></image> -->
-        </view>
-        <view class="xx_menu__node_name">
-                <view class="xx_text__title">{{name}}</view>
-                <view class="id" hidden='{{!user_id}}'>ID：{{user_id}}</view>
+<block wx:if="{{loginStatus==2}}">
+    <view class="xx_menu ">
+        <view  url="" class="xx_menu__node page__bg_zfbblue logo">
+            <view class="xx_menu__node_logo" catchtap="clickLogo">
+                <button open-type='getUserInfo' class='login' bindgetuserinfo="getUserInfo">
+                    <image class='login_bg' src="../../images/click_login.png"></image>
+                </button>
+                <!-- <image class='logo_image' src="../../images/click_login.png"></image> -->
+            </view>
+            <view class="xx_menu__node_name">
+                    <view class="xx_text__title">{{name}}</view>
+                    <view class="id" hidden='{{!user_id}}'>ID：{{user_id}}</view>
+            </view>
         </view>
     </view>
-</view>
 
-<view  style='height:10px;' ></view>   
-<view class="xx_menu ">
-    <navigator url="/pages/member/member" class="xx_menu__node tab " hover-class="xx_active">
-        <view class="xx_menu__node_icon">
-            <image src="../../images/my_vip.png"></image>
-        </view>
-        <view class="xx_menu__node_name">会员</view>
-        <view class=" xx_menu__node_access xx_text__right"></view>
-    </navigator>
+    <view  style='height:10px;' ></view>   
+    <view class="xx_menu ">
+        <navigator url="/pages/member/member" class="xx_menu__node tab " hover-class="xx_active">
+            <view class="xx_menu__node_icon">
+                <image src="../../images/my_vip.png"></image>
+            </view>
+            <view class="xx_menu__node_name">会员</view>
+            <view class=" xx_menu__node_access xx_text__right"></view>
+        </navigator>
 
-    <view catchtap="toDiscount" url="" class="xx_menu__node tab " hover-class="xx_active">
-        <view class="xx_menu__node_icon">
-            <image src="../../images/my_vip.png"></image>
+        <view catchtap="toDiscount" url="" class="xx_menu__node tab " hover-class="xx_active">
+            <view class="xx_menu__node_icon">
+                <image src="../../images/my_vip.png"></image>
+            </view>
+            <view class="xx_menu__node_name">政策</view>
+            <view class=" xx_menu__node_access xx_text__right"></view>
         </view>
-        <view class="xx_menu__node_name">政策</view>
-        <view class=" xx_menu__node_access xx_text__right"></view>
     </view>
-</view>
+</block>
+<block wx:if="{{loginStatus==3}}">
+     <template is="main" wx:if="{{pageStatus==1}}"/> 
+     <template is="is_register" wx:if="{{pageStatus==2}}"/> 
+     <template is="is_new"  wx:if="{{pageStatus==3}}"/> 
+    
+</block>
+
+<!-- 登陆选择 -->
+<template name="main">
+    <view class='title'>
+        请选择登陆方式
+    </view>
+    <view class='des'>
+        <button type='primary' class='btn' catchtap='setPageStatus' data-value="2">已注册用户</button>
+        <view style='height:15px;'></view>
+        <button class='btn' catchtap='setPageStatus' data-value="3">新用户</button>
+    </view>
+</template>
+
+<!-- 已注册用户登录 -->
+<template name="is_register">
+    <view class='title'>
+        已注册用户登录
+    </view>
+    <view class='input' >
+        <xx-input name="账号" placeholder="请输入姓名" bindinput='inputName' value='{{userInfo.name}}'></xx-input>
+        <view class='line__gray'></view> 
+        <xx-input name="密码" placeholder="请输入姓名" bindinput='inputName' value='{{userInfo.name}}'></xx-input>
+    </view>       
+    
+    <template is="btn" />
+</template>
+
+<!-- 新用户登录 -->
+<template name="is_new">
+    <view class='title'>
+        新用户登录
+    </view>
+    <view class='input' >
+        <xx-input name="手机" placeholder="请输入手机号码" bindinput='inputName' value='{{userInfo.name}}'></xx-input>
+        <view class='line__gray'></view> 
+        <xx-input name="验证码" mode="check" placeholder="请输入姓名" bindinput='inputName' value='{{userInfo.name}}'></xx-input>
+    </view>       
+    
+    <template is="btn" />
+
+</template>
+
+
+<template name="btn">
+    <view style='height:25px;'></view>
+    <view class='des'>
+        <button type='primary' class='btn' open-type='getUserInfo' bindgetuserinfo="getUserInfo">登陆</button>
+        <view style='height:15px;'></view>
+        <button class='btn' catchtap='setPageStatus' data-value="1">返回</button>
+    </view>
+</template>

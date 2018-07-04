@@ -14,54 +14,59 @@
     </view>
     <view style='height:15px;'></view>
     <view>
-        <swiper  
-            autoplay="true" interval="5000" duration="1000"
-            indicator-dots="true"
-            indicator-color="rgba(255, 255, 255, .3)" 
-            indicator-active-color="rgba(88, 88, 88, .6)" 
-            circular="true"	  class="swiper">
-                <block wx:for="{{list}}" wx:key="index">
-                    <swiper-item class="swiper-item">
-                        <image  class='image'
-                        src="{{item.url}}"   
-                        catchtap="click" data-index="{{index}}"/>
-                    </swiper-item>
-                </block> 
-        </swiper>
+        <image class='image' src='../../images/member_1.jpg' wx:if="{{checked==1}}"></image>
+        <image class='image' src='../../images/member_2.jpg' wx:else></image>
     </view>
-    <radio-group >
-        <view class='choice'>
-            <radio>短息会员</radio>
-            <radio>网站会员</radio>
+    <view style='height:10px;'></view>
+    <radio-group bindchange="radioChange">
+        <view class='choice' >
+            <radio checked="{{checked==1}}" value="1">网站会员</radio>
+            <radio checked="{{checked==2}}" value="2">短息会员</radio>
         </view>
     </radio-group>
 
     <view style='height:15px;'></view>
     <view class='des'>
         <view class='des_title'>年费订阅</view>
-        <view class='des_price'>￥ <label>232</label></view>
+        <view class='des_price'>￥ <label>{{price}}</label></view>
     </view>
     <view style='height:15px;'></view>
-    <view class='btn'>开通会员</view>
+    <view class='btn' catchtap='createPayPage'>开通会员</view>
     <view style='height:25px;'></view>
     <view class='line__gray'></view>
-    <view style='height:25px;'></view>
+     <view style='height:5px;'></view> 
 </view>
 
-<view class='summary'>
+ <view class='summary'>
     <view class='summary_title'>会员权益</view>
     <view style='height:25px;'></view>
     <view class='node'>
         <view class='icon'>
-            <image class='icon_image' src='../../images/mine_fill.png'></image>
+            <image class='icon_image' src='../../images/info_unselect.png'></image>
         </view>
-        <view class='summary_des'>长汀2000+ 场优质live</view>
+        <view class='summary_des'>全球化信息浪潮</view>
     </view>
     <view style='height:25px;'></view>
     <view class='node'>
         <view class='icon'>
-            <image class='icon_image' src='../../images/mine_fill.png'></image>
+            <image class='icon_image' src='../../images/match_unselect1.png'></image>
         </view>
-        <view class='summary_des'>长汀2000+ 场优质live</view>
+        <view class='summary_des'>优质合作</view>
     </view>
-</view>
+    <view style='height:25px;'></view>
+    <view class='node'>
+        <view class='icon'>
+            <image class='icon_image' src='../../images/roster_unselect.png'></image>
+        </view>
+        <view class='summary_des'>庞大的商圈</view>
+    </view>
+    <view style='height:25px;'></view>
+    <view class='node'>
+        <view class='icon'>
+            <image class='icon_image' src='../../images/meet_unselect.png'></image>
+        </view>
+        <view class='summary_des'>专业的培训</view>
+    </view>
+</view> 
+
+<view style='height:40px;'></view>
