@@ -1,4 +1,23 @@
 /* pages/together/together.wxss */
+.banner1{
+    display: flex;
+    align-items: center;
+    padding:15px 15px;
+    font-size: 11pt;
+    /* font-weight: bolder; */
+    color: #000;
+    border-bottom: 1rpx solid #dddddd;
+}
+.line{
+    content: "";
+    width: 3px;
+    height: 8pt;
+    background:  #1c82d4;
+    margin-right:5px;
+    /* border-left: 2px solid #1c82d4; */
+}
+
+
 .xx_flex{
     display: flex;
     align-items: center;

@@ -7,7 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-    
+        industryID:null,
     },
 
     /**
@@ -15,35 +15,44 @@ Page({
      */
     onLoad: function (options) {
         GP = this
+        GP.setData({
+            // industryID: wx.getStorageSync(API.KEY_INDUSTRYID)
+            industryID:1
+        })
+        GP.onInit()
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-    
-    },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
+    onInit(){
 
         API.Request({
-            url: "https://xcx.308308.com/huaxun_2/api/roster/get_list/tag/?tag_id=1&start_index=0&end_index=10&app_id=wx51930c31391cc5cc",
+            url: "https://xcx.308308.com/huaxun_2/api/roster/get_list/tag",
+            data:{
+                tag_id: GP.data.industryID,
+                start_index:0,
+                end_index:100,
+            },
             success: function (res) {
                 console.log(res.data)
                 GP.setData({
                     rosterList: res.data.article_list
                 })
-                // GP.getCategoryList(1)
             },
         })
     },
 
-    onInit(){
-        
+    clearInput: function () {
+        this.setData({
+            inputVal: "",
+            isSearch: false,
+        });
     },
+    inputTyping: function (e) {
+        this.setData({
+            inputVal: e.detail.value
+        });
+    },
+    
 
     /**
      * 用户点击右上角分享

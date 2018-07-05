@@ -6,12 +6,13 @@
         <view  url="" class="xx_menu__node page__bg_zfbblue logo">
             <view class="xx_menu__node_logo" catchtap="clickLogo">
                 <button open-type='getUserInfo' class='login' bindgetuserinfo="getUserInfo">
-                    <image class='login_bg' src="../../images/click_login.png"></image>
+                    <image class='login_bg' src="../../images/click_login.png" wx:if="{{user==''}}"></image>
+                    <image class='login_bg' src="{{user.avatarUrl}}" wx:else></image>
                 </button>
                 <!-- <image class='logo_image' src="../../images/click_login.png"></image> -->
             </view>
             <view class="xx_menu__node_name">
-                    <view class="xx_text__title">{{name}}</view>
+                    <view class="xx_text__title nickName">{{user.nickName}}</view>
                     <view class="id" hidden='{{!user_id}}'>ID：{{user_id}}</view>
             </view>
         </view>
@@ -27,13 +28,13 @@
             <view class=" xx_menu__node_access xx_text__right"></view>
         </navigator>
 
-        <view catchtap="toDiscount" url="" class="xx_menu__node tab " hover-class="xx_active">
+        <!-- <view catchtap="toDiscount" url="" class="xx_menu__node tab " hover-class="xx_active">
             <view class="xx_menu__node_icon">
                 <image src="../../images/my_vip.png"></image>
             </view>
             <view class="xx_menu__node_name">政策</view>
             <view class=" xx_menu__node_access xx_text__right"></view>
-        </view>
+        </view> -->
     </view>
 </block>
 <block wx:if="{{loginStatus==3}}">

@@ -9,11 +9,15 @@ var KEY_OPENID = "openid"
 var KEY_SESSION = "session"
 var KEY_TOKEN = "token"
 var KEY_INDUSTRYID = "industryid"
+var KEY_USER = "user"
 var request = new Request()
 request.init(XCX_308_URL + 'token/login/', APP_ID)
 
 console.log(request)
-function addToken(url){
+function addToken(url) {
+    return url 
+}
+function addToken1(url) {
     return url + "?access_token=" + wx.getStorageSync(KEY_TOKEN)
 }
 module.exports = {
@@ -27,6 +31,7 @@ module.exports = {
 
     KEY_SESSION: KEY_SESSION,
     KEY_INDUSTRYID: KEY_INDUSTRYID,
+    KEY_USER: KEY_USER,
 }
 
 
@@ -150,7 +155,7 @@ function Request() {
         data['app_id'] = APP_ID  //每个请求都加session
         wx.request
             ({
-                url: options.url,
+                url: addToken1(options.url),
                 method: options.method || "GET",
                 header: options.header || {'content-type': 'application/json'},
                 data: data,

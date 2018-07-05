@@ -39,7 +39,9 @@
 .tab {
      padding:  15px  ;
 }
-
+.nickName{
+    color: #fff;
+}
 .id {
     color: #fff;
     font: 11pt;

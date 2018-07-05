@@ -10,6 +10,7 @@ Page({
         // user
         loginStatus:1, // 1 登陆中 2已登录 3未登录
         pageStatus:1, //1 引导,2 老,3 新
+        user:"",
     },
 
     setPageStatus(e){
@@ -20,6 +21,11 @@ Page({
 
     getUserInfo(res){
         console.log(res)
+        
+        wx.setStorageSync(API.KEY_USER, res.detail.userInfo)
+        GP.setData({
+            user: res.detail.userInfo
+        })
     },
 
     setUserInfo(roster_id) {
@@ -38,6 +44,11 @@ Page({
     },
 
     onInit(){
+        // 1\获取用户信息
+        var user = wx.getStorageSync(API.KEY_USER)
+        GP.setData({
+            user: user
+        })
         // 1 验证openid是否已经登录
         // API.Request({
         //     url: "https://xcx.308308.com/huaxun_2/api/roster/get/id/",
