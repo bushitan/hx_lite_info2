@@ -21,11 +21,12 @@ Page({
 
     getUserInfo(res){
         console.log(res)
-        
+
         wx.setStorageSync(API.KEY_USER, res.detail.userInfo)
         GP.setData({
             user: res.detail.userInfo
         })
+        GP.SetUserInfo(res.detail.userInfo)
     },
 
     setUserInfo(roster_id) {
@@ -42,6 +43,53 @@ Page({
             },
         })
     },
+    SetUserInfo: (userInfo) => {
+        // wx.getUserInfo({
+        //     success: function (res) {
+                var userInfo = userInfo
+                // var nickName = userInfo.nickName
+                // var avatarUrl = userInfo.avatarUrl
+                // var gender = userInfo.gender //性别 0：未知、1：男、2：女
+                // var province = userInfo.province
+                // var city = userInfo.city
+                // var country = userInfo.country
+                console.log(userInfo)
+                GP.setData({
+                    logo: userInfo.avatarUrl,
+                    name: userInfo.nickName,
+                })
+                wx.request
+                ({
+                    url: API.MY_SET_WX,
+                    method: "GET",
+                    data: {
+                        session: wx.getStorageSync(API.KEY_SESSION),
+                        logo_url: userInfo.avatarUrl,
+                        nick_name: userInfo.nickName,
+                    },
+                    success: function (res) {
+                        var object = res.data
+                        console.log(object)
+                        if (object.status == "true") //登陆成功
+                        {
+                            wx.showToast({
+                                title: '登陆成功',
+                            })
+                        }
+                        else {
+
+                        }
+                    },
+                    fail: function (res) {
+                    },
+                })
+                // },
+        //     }
+        // })
+    },
+
+
+
 
     onInit(){
         // 1\获取用户信息

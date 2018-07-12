@@ -4,14 +4,18 @@
 var APP_ID = "wx51930c31391cc5cc"
 // var host_url = 'https://xcx.308308.com/huaxun_2/api/';
 var API_308_URL = 'https://api.308308.com/';
-var XCX_308_URL = 'http://127.0.0.1:8000/huaxun_2/api308/';
+
+var XCX_308_URL = 'https://xcx.308308.com/huaxun_2/';
+// var XCX_308_URL = 'http://127.0.0.1:8000/huaxun_2/api308/';
+// var XCX_308_URL = 'http://192.168.199.203:8000/huaxun_2/';
+
 var KEY_OPENID = "openid"
 var KEY_SESSION = "session"
 var KEY_TOKEN = "token"
 var KEY_INDUSTRYID = "industryid"
 var KEY_USER = "user"
 var request = new Request()
-request.init(XCX_308_URL + 'token/login/', APP_ID)
+request.init(XCX_308_URL + 'api308/token/login/', APP_ID)
 
 console.log(request)
 function addToken(url) {
@@ -27,7 +31,10 @@ module.exports = {
     //获取行业大类下的子栏目
     API_INFO_GET_CATEGORY_LIST: addToken(API_308_URL + 'cms/articles/get_categories_by_industry/'),
     API_INFO_GET_ARTICLE: addToken(API_308_URL + 'cms/articles/get_article/'),
-    API_INFO_GET_ARTICLE_LIST: XCX_308_URL + 'cms/get/article_list/',
+    API_INFO_GET_ARTICLE_LIST: addToken(API_308_URL + 'cms/articles/get_articles_by_category/'),
+    // API_INFO_GET_ARTICLE_LIST: XCX_308_URL + 'api308/cms/get/article_list/',
+
+    MY_SET_WX: XCX_308_URL+'api/my/set/wx/',
 
     KEY_SESSION: KEY_SESSION,
     KEY_INDUSTRYID: KEY_INDUSTRYID,
@@ -160,6 +167,13 @@ function Request() {
                 header: options.header || {'content-type': 'application/json'},
                 data: data,
                 success: function (res) {
+                    if (res.data.status.code == 10020){
+                        GlobalData.apiPreList.push(options)
+                        _RequestLogin()
+                        return
+                    }
+
+
                     if (options.success != undefined)
                         options.success(res)
                 },

@@ -1,5 +1,7 @@
 /* pages/info/info.wxss */
-
+.scroll_view_y{
+    height: 100vh;
+} 
 .tab{
     /* background-color: #1c82d4; */
 }

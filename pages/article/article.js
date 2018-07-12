@@ -15,7 +15,7 @@ Page({
             url: API.API_INFO_GET_ARTICLE,
             method: "POST",
             data: {
-                uid: 99622, 
+                uid: 14, 
                 article_id: article_id,
             },
             success: function (res) {
