@@ -27,32 +27,32 @@
             {
                 "pagePath": "pages/info/info",
                 "text": "快讯",
-                "iconPath": "images/11.png",
-                "selectedIconPath": "images/12.png"
+                "iconPath": "images/info_unselect1.png",
+                "selectedIconPath": "images/info_select.png"
             },
             {
                 "pagePath": "pages/subject/subject",
                 "text": "专栏",
-                "iconPath": "images/21.png",
-                "selectedIconPath": "images/22.png"
+                "iconPath": "images/subject_unselect.png",
+                "selectedIconPath": "images/subject_select.png"
             },
             {
                 "pagePath": "pages/meet/meet",
                 "text": "活动",
-                "iconPath": "images/31.png",
-                "selectedIconPath": "images/32.png"
+                "iconPath": "images/match_unselect1.png",
+                "selectedIconPath": "images/match_select1.png"
             },
             {
                 "pagePath": "pages/serve/serve",
                 "text": "服务",
-                "iconPath": "images/41.png",
-                "selectedIconPath": "images/42.png"
+                "iconPath": "images/my_unselect.png",
+                "selectedIconPath": "images/my_select.png"
             },
             {
                 "pagePath": "pages/roster/roster",
                 "text": "商圈",
-                "iconPath": "images/51.png",
-                "selectedIconPath": "images/52.png"
+                "iconPath": "images/r_unselect.png",
+                "selectedIconPath": "images/r_select.png"
             }
         ]
     },

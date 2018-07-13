@@ -35,7 +35,11 @@ Component({
         // return _new
         if (_new != null) {
             var content = _new.content.replace(/&ldquo;/g, '"').replace(/rdquo;/g, '"').replace(/&radic;/g, '勾').replace(/&mdash;/g, '-').replace(/&beta;/g, 'b')
-                
+
+            content = content.replace(/<table/g, ' <table style="border: 1px solid #E8E8E8;" ')
+            content = content.replace(/<colgroup/g, ' <colgroup style="border: 1px solid #E8E8E8;" ')
+            content = content.replace(/<tr/g, ' <tr style="border: 1px solid #E8E8E8;" ')
+            content = content.replace(/<td/g, ' <td style="border: 1px solid #E8E8E8;" ')
             this.setData({
                 content: content
             })
