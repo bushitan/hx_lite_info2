@@ -33,9 +33,18 @@ module.exports = {
     API_INFO_GET_ARTICLE: addToken(API_308_URL + 'cms/articles/get_article/'),
     API_INFO_GET_ARTICLE_LIST: addToken(API_308_URL + 'cms/articles/get_articles_by_category/'),
     // API_INFO_GET_ARTICLE_LIST: XCX_308_URL + 'api308/cms/get/article_list/',
-
+    // 服务
+    API_USER_CHECK: addToken(API_308_URL + 'cms/ca/get_info_by_openid/'),
+    API_USER_BIND: addToken(API_308_URL + 'cms/ca/bind/'), //老用户绑定
+    API_USER_REGISTER: addToken(API_308_URL + 'cms/ca/register/'), //新用户注册
+    API_USER_GET_SHORT_MESSAGE: addToken(API_308_URL + 'captcha/short_message/register/'), //获取短信验证码
     MY_SET_WX: XCX_308_URL+'api/my/set/wx/',
 
+    //商圈
+    API_ROSTER_GET_LIST: addToken(API_308_URL + 'cms/mall/get_malls/'),
+    API_ROSTER_GET_CONTENT: addToken(API_308_URL + 'cms/mall/get_mall_by_uid/'),
+
+    KEY_OPENID: KEY_OPENID,
     KEY_SESSION: KEY_SESSION,
     KEY_INDUSTRYID: KEY_INDUSTRYID,
     KEY_USER: KEY_USER,
@@ -159,7 +168,7 @@ function Request() {
         if (!_session) //检查session,不存在，为false
             _session = "false"
         // data['session'] = _session  //每个请求都加session
-        data['app_id'] = APP_ID  //每个请求都加session
+        // data['app_id'] = APP_ID  //每个请求都加session
         wx.request
             ({
                 url: addToken1(options.url),

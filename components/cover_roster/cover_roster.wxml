@@ -3,19 +3,20 @@
 
 <view class='cover'>
     <block wx:for="{{list}}" wx:key="item">
-        <navigator url='/pages/roster_info/roster_info?roster_id={{item.roster_id}}' class='node'> 
-            <image class='right' src='{{item.user_logo}}' mode='aspectFit'></image>
+        <navigator url='/pages/roster_info/roster_info?roster_id={{item.id}}' class='node'> 
+            <image class='right' hidden='{{item.logo==null?true:false}}' src='{{item.logo}}' mode='aspectFit'></image>
             <view class='left'>
-                <view class='title'>{{item.user_name}}</view>
+                <view class='title'>{{item.contactName}}</view>
                 <!-- <view style='height:4px'></view> -->
-                <view class='time'>{{item.company_name}}</view>
+                <view class='time'>{{item.companyName}}</view>
                 <view style='height:4px'></view>
-                <view class='des' wx:if="{{item.sell != ''}}">供应：{{item.sell}}</view>
-                <!-- <view style='height:4px'></view> -->
-                <view class='des' wx:if="{{item.buy != ''}}">求购：{{item.buy}}</view>
+                 <view class='des' wx:if="{{item.productionTypeName != ''}}">{{item.productionTypeName}}</view>
+                <!-- <view class='des' wx:if="{{item.productionTypeName != ''}}">供应：{{item.productionTypeName}}</view>
+                <view class='des' wx:if="{{item.buy != ''}}">求购：{{item.buy}}</view> -->
             </view>
         </navigator>
         <view style='height:15px'></view>
         <!-- <view class='line__gray'></view> -->
     </block>
 </view>
+

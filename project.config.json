@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -75,6 +75,18 @@
 					"name": "文章",
 					"pathName": "pages/article/article",
 					"query": "article_id=222390"
+				},
+				{
+					"id": -1,
+					"name": "服务绑定",
+					"pathName": "pages/serve_bind/serve_bind",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商圈明细",
+					"pathName": "pages/roster_info/roster_info",
+					"query": ""
 				}
 			]
 		}

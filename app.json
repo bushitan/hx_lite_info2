@@ -8,6 +8,7 @@
     "pages/subject/subject",
     "pages/meet/meet",
     "pages/serve/serve",
+    "pages/serve_bind/serve_bind",
     "pages/roster/roster",
     "pages/logs/logs"
   ],

@@ -12,15 +12,20 @@ Page({
 
     getRoster(roster_id) {
         API.Request({
-            url: "https://xcx.308308.com/huaxun_2/api/roster/get/id/",
+            url: API.API_ROSTER_GET_CONTENT,
+            method: "POST",
             data: {
-                roster_id: roster_id,
+                uid: roster_id
             },
             success: function (res) {
                 console.log(res.data)
-                GP.setData({
-                    roster: res.data.roster_dict,
-                })
+                // var rosterList = GP.data.rosterList
+                // rosterList = rosterList.concat(res.data.data.content) //新增文章拼接
+                // GP.setData({
+                //     rosterList: rosterList,
+                //     last: res.data.data.last,
+                //     scrollLock: false,
+                // })
             },
         })
     },

@@ -21,7 +21,7 @@
         <navigator url='/pages/article/article?article_id={{item.article_id}}' class='node'> 
             <view class='left'>
                 <view class='title'>{{item.title}}</view>
-                <view class='time'>{{item.issue_time}}</view>
+                <view class='time'>{{item.release_date}}</view>
             </view>
             <!-- {{item.image==""}}{{item.image}} -->
             <image class='right' src='{{item.image}}' hidden='{{item.image==""}}'></image>

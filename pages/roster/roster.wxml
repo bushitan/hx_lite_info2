@@ -37,6 +37,7 @@
     </view>
 </view> -->
 
+<scroll-view     scroll-y="true" bindscrolltolower="scrollBottom"  style='height: 100vh;'> 
 <view class='banner1 page__bg_white'>
     <view class='line'></view>
     <label>商圈</label>
@@ -46,4 +47,5 @@
 >
 </xx-cover>
 
-<xx-loading more="{{false}}"></xx-loading>
+<xx-loading more="{{!last}}"></xx-loading>
+</scroll-view> 

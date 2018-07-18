@@ -26,7 +26,8 @@
                 <view class="xx_input__name ">{{name}}</view>
         </view>
         <view class='xx_input__line'>
-            <input class="" placeholder="{{placeholder}}" bindinput="input" value='{{value}}' />
+            <input class="" placeholder="{{placeholder}}" bindinput="input" value='{{value}}'
+                 type='{{input_type}}' />
         </view>
         <view class=" xx_menu__node_access xx_text__right"></view>
     </view>

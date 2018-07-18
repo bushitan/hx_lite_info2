@@ -1,0 +1,87 @@
+
+<!-- {{pageStatus==1?false:true}} -->
+<!-- <view hidden="{{pageStatus==1?false:true}}">
+    <template is="main" /> 
+</view>
+<view hidden="{{pageStatus==2?false:true}}">
+    <template is="is_register" /> 
+</view>
+<view hidden="{{pageStatus==3?false:true}}">
+    <template is="is_new"  /> 
+</view> -->
+<template is="main" wx:if="{{pageStatus==1}}"  /> 
+<template is="is_register" wx:if="{{pageStatus==2}}" data="{{oldAccount,oldPassword}}"/> 
+<template is="is_new" wx:if="{{pageStatus==3}}" data="{{newPhone,newCode}}"/> 
+    
+
+
+<!-- 登陆选择 -->
+<template name="main">
+    <view class='title'>
+        请选择登陆方式
+    </view>
+    <view class='des'>
+        <button type='primary' class='btn' catchtap='setPageStatus' data-value="2">已注册用户</button>
+        <view style='height:15px;'></view>
+        <button class='btn' catchtap='setPageStatus' data-value="3">新用户</button>
+        <view style='height:15px;'></view>
+        <navigator open-type="switchTab" url="/pages/serve/serve">
+            <button>返回</button>
+        </navigator>
+    </view>
+</template>
+
+<!-- 已注册用户登录 -->
+<template name="is_register">
+    <view class='title'>
+        已注册用户绑定
+    </view>
+    <view class='input' >
+        <xx-input name="账号" placeholder="请输入姓名" bindinput='bindAccount' value='{{oldAccount}}'></xx-input>
+        <view class='line__gray'></view> 
+        <xx-input name="密码" placeholder="请输入姓名" bindinput='bindPassword' value='{{oldPassword}}'></xx-input>
+    </view>       
+     <view style='height:25px;'></view>
+    <view class='des'>
+        <button type='primary' class='btn' catchtap="bind">绑定</button>
+        <template is="btn" /> 
+    </view>
+</template>
+
+<!-- 新用户登录 -->
+<template name="is_new">
+    <view class='title'>
+        新用户登录
+    </view>
+    <view class='input' >
+        <xx-input 
+            name="手机" 
+            placeholder="请输入手机号码" 
+            bindinput='registerPhone' 
+            value='{{newPhone}}' 
+            input_type='number'
+        ></xx-input>
+        <view class='line__gray'></view> 
+        <xx-input 
+            name="验证码" 
+            mode="check" 
+            placeholder="请输入手机验证码" 
+            bindinput='registerCode' 
+            catchcheck="registerGetCode" 
+            value='{{newCode}}'
+        ></xx-input>
+    </view>       
+    
+    <view style='height:25px;'></view>
+    <view class='des'>
+        <button type='primary' class='btn' catchtap="register">注册</button>
+        <template is="btn" /> 
+    </view>
+
+</template>
+
+
+<template name="btn">
+        <view style='height:15px;'></view>
+        <button class='btn' catchtap='setPageStatus' data-value="1">返回</button>
+</template>

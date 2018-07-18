@@ -1,6 +1,7 @@
 // pages/info/info.js
 var API = require('../../utils/api.js');
-var GP 
+var GP
+var pageNO = 1
 Page({
 
     /**
@@ -10,9 +11,10 @@ Page({
         categoryList:[],
         articleList:[],
         scrollLock:true,
+        last:false,
         industryID:null,
         rows:20,
-        pageNO:1,
+        // pageNO:1,
     },
     change() {
         wx.redirectTo({
@@ -36,34 +38,34 @@ Page({
                 console.log(res.data)
                 GP.setData({
                     categoryList: res.data.data.categories,
+                    categoryID: res.data.data.categories[0].category_id,
+                    
                 })
-                GP.getArticleList( 3, 20, 1)
+                
+                GP.getArticleList()
             },
         })
     },
 
     scrollBottom(){
         if (GP.data.last == false && GP.data.scrollLock == false) {
-            GP.getArticleList(3, 20, GP.data.pageNo + 1)
             GP.setData({
-                pageNo: GP.data.pageNo + 1,
                 scrollLock:true,
             })
-            console.log('OK')
+            pageNO++
+            GP.getArticleList()
         }
     },
     //获取文章列表
-    getArticleList( category_id, rows, page_no){
-      
-
+    getArticleList(){
         API.Request({
             url: API.API_INFO_GET_ARTICLE_LIST,
             method: "POST",
             data: { 
                 industry_id: GP.data.industryID,
-                category_id: category_id,
-                rows: rows,
-                page_no: page_no,
+                category_id: GP.data.categoryID,
+                rows: GP.data.rows,
+                page_no: pageNO,
             },
             success: function (res) {
                 console.log(res.data)
@@ -72,8 +74,6 @@ Page({
                 article_list = article_list.concat(res.data.data.content) //新增文章拼接
                 GP.setData({
                     articleList: article_list,
-                    rows: res.data.rows,
-                    pageNo: res.data.page_no,
                     last: res.data.data.last,
                     scrollLock:false,
                 })
@@ -82,8 +82,12 @@ Page({
     },
     clickTag(e){
         var index = e.detail
-        GP.setData({ articleList:[]})
-        GP.getArticleList(GP.data.categoryList[index].category_id, 20, 1)
+        GP.setData({ 
+            articleList:[],
+            categoryID: GP.data.categoryList[index].category_id,
+        })
+        pageNO = 1
+        GP.getArticleList(1)
     },
 
     /**
@@ -101,7 +105,7 @@ Page({
                 GP.setData({ industryID: industry_id})
         }else
             GP.setData({ industryID: options.industry_id })
-        
+
         wx.showToast({
             icon:"loading",
             title: '登陆中',

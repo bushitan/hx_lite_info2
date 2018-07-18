@@ -1,6 +1,5 @@
 {
     "usingComponents": {
-        "xx-navigte": "../../components/navigte/navigte",
         "xx-input": "../../components/input/input"
     }
 }
