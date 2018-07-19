@@ -14,6 +14,7 @@ var KEY_SESSION = "session"
 var KEY_TOKEN = "token"
 var KEY_INDUSTRYID = "industryid"
 var KEY_USER = "user"
+var KEY_HX_UID = "hx_uid"  //华讯大平台的uid
 var request = new Request()
 request.init(XCX_308_URL + 'api308/token/login/', APP_ID)
 
@@ -48,6 +49,7 @@ module.exports = {
     KEY_SESSION: KEY_SESSION,
     KEY_INDUSTRYID: KEY_INDUSTRYID,
     KEY_USER: KEY_USER,
+    KEY_HX_UID: KEY_HX_UID,
 }
 
 

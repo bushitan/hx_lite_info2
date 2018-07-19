@@ -8,7 +8,7 @@ Page({
      */
     data: {
         // user
-        pageStatus:3, //1 引导,2 老,3 新
+        pageStatus:2, //1 引导,2 老,3 新
         user:"",
 
         oldAccount: "",
@@ -29,20 +29,28 @@ Page({
     bindAccount(e) { GP.setData({ oldAccount:e.detail}) },
     bindPassword(e) { GP.setData({ oldPassword: e.detail }) },
     bind(){
+        if (GP.data.oldAccount =="" ){
+            wx.showModal({title: '请输入账号',})
+            return 
+        }
+        if (GP.data.oldAccount == "") {
+            wx.showModal({ title: '请输入密码', })
+            return 
+        }
+
         API.Request({
             url: API.API_USER_BIND,
             method:"POST",
             data: {
                 "openid": wx.getStorageSync(API.KEY_OPENID),
-                "account": "bushitan",
-                "password": "12345678",
-                "industry_id":1, //默认松香行业
+                "account": GP.data.oldAccount ,
+                "password": GP.data.oldPassword ,
                 // "account": "zhangsan",
                 // "password": "12345678",
             },
             success: function (res) {
                 console.log(res.data)
-                if (res.data.status.code != 11100) {
+                if (res.data.status.code == 11100) {
                     wx.showModal({
                         title: res.data.status.message,
                         showCancel: false,

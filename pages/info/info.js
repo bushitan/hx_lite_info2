@@ -27,6 +27,18 @@ Page({
 
     onInit(options){
         GP.getCategoryList(GP.data.industryID)
+        GP.getHXUserID()//过去HX大平台的用户id
+    },
+
+    getHXUserID(){
+        API.Request({
+            url: API.API_USER_CHECK,
+            method: "POST",
+            data: { openid: wx.getStorageSync(API.KEY_OPENID),},
+            success: function (res) {
+                wx.setStorageSync(API.KEY_HX_UID, res.data.data.bindedUser.uid)
+            },
+        })
     },
 
     getCategoryList(industry_id){

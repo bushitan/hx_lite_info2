@@ -15,7 +15,8 @@ Page({
             url: API.API_ROSTER_GET_CONTENT,
             method: "POST",
             data: {
-                uid: roster_id
+                search_uid: roster_id,
+                uid: wx.getStorageSync(API.KEY_HX_UID)
             },
             success: function (res) {
                 console.log(res.data)
