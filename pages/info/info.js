@@ -36,7 +36,11 @@ Page({
             method: "POST",
             data: { openid: wx.getStorageSync(API.KEY_OPENID),},
             success: function (res) {
-                wx.setStorageSync(API.KEY_HX_UID, res.data.data.bindedUser.uid)
+                if (res.data.status.code == 11013)
+                    wx.setStorageSync(API.KEY_HX_UID, "")  //没有权限，重置
+                else
+                    wx.setStorageSync(API.KEY_HX_UID, res.data.data.uid)
+
             },
         })
     },

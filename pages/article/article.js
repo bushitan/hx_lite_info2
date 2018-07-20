@@ -15,7 +15,8 @@ Page({
             url: API.API_INFO_GET_ARTICLE,
             method: "POST",
             data: {
-                uid: wx.getStorageSync(API.KEY_HX_UID),  //用华讯大平台的uid
+                uid: wx.getStorageSync(API.KEY_HX_UID) || -1,  //用华讯大平台的uid
+                // uid: -1,  //用华讯大平台的uid
                 article_id: article_id,
             },
             success: function (res) {

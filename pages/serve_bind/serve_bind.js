@@ -8,7 +8,7 @@ Page({
      */
     data: {
         // user
-        pageStatus:2, //1 引导,2 老,3 新
+        pageStatus:1, //1 引导,2 老,3 新
         user:"",
 
         oldAccount: "",
@@ -43,24 +43,29 @@ Page({
             method:"POST",
             data: {
                 "openid": wx.getStorageSync(API.KEY_OPENID),
-                "account": GP.data.oldAccount ,
+
+                // "openid": "1121", 
+                "username": GP.data.oldAccount ,
                 "password": GP.data.oldPassword ,
                 // "account": "zhangsan",
                 // "password": "12345678",
             },
             success: function (res) {
                 console.log(res.data)
-                if (res.data.status.code == 11100) {
-                    wx.showModal({
-                        title: res.data.status.message,
-                        showCancel: false,
-                    })
-                }else{
+                if (res.data.status.code == 0) {
                     wx.showModal({
                         title: "绑定成功",
                         showCancel: false,
-                        success:function(){
-                                wx.switchTab({url: '/pages/serve/serve',})
+                        success: function () {
+                            wx.switchTab({ url: '/pages/serve/serve', })
+                        },
+                    }) 
+                }else{
+                    wx.showModal({
+                        title: res.data.status.message,
+                        showCancel: false, 
+                        success: function () {
+                            wx.switchTab({ url: '/pages/serve/serve', })
                         },
                     })
                 }
