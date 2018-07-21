@@ -31,6 +31,10 @@ Page({
         })
     },
 
+    // setRoster(){
+        
+    // },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -38,7 +42,14 @@ Page({
         GP = this
 
         var roster_id = options.roster_id
-        GP.getRoster(roster_id)
+        // GP.getRoster(roster_id)
+        GP.setData({
+            logo : options.logo, 
+            contactName: options.contactName, 
+            companyName: options.companyName,
+            productionTypeName: options.productionTypeName,
+        })
+        // GP.setRoster(logo, contactName, companyName)
     },
 
     /**
