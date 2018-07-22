@@ -20,11 +20,7 @@
 
     <view  style='height:10px;' ></view>   
 
-    <!-- 会员绑定 -->
-    <view class='bind' wx:if="{{!isBind}}">
-        <button type='primary' catchtap='bind'>会员绑定</button>
-    </view>
-    <view class='navigte ' wx:else>
+    <view class='navigte ' >
         <xx-navigte  open_type="redirect">
             <!-- <image slot="icon" class='icon' src="../../images/my_vip.png"></image> -->
             <view slot="left" >信息</view> 
@@ -67,4 +63,8 @@
     </view>  
 
  
+    <!-- 会员绑定 -->
+    <view class='bind' >
+        <button type='primary' catchtap='bind'>会员绑定</button>
+    </view>
 </block>
