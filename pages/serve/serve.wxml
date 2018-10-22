@@ -64,7 +64,10 @@
 
  
     <!-- 会员绑定 -->
-    <view class='bind' >
-        <button type='primary' catchtap='bind'>会员绑定</button>
+    <view class='bind' wx:if="{{isBind}}" >
+        <button  catchtap='unbind'>解除当前会员账号绑定</button>
+    </view>
+    <view class='bind' wx:else >
+        <button type='primary' catchtap='bind'>华讯会员绑定</button>
     </view>
 </block>

@@ -37,3 +37,10 @@ App({
     userInfo: null
   }
 })
+
+// {
+//     "pagePath": "pages/subject/subject",
+//         "text": "专栏",
+//             "iconPath": "images/subject_unselect.png",
+//                 "selectedIconPath": "images/subject_select.png"
+// },

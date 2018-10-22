@@ -37,6 +37,7 @@ module.exports = {
     // 服务
     API_USER_CHECK: addToken(API_308_URL + 'cms/ca/get_info_by_openid/'),
     API_USER_BIND: addToken(API_308_URL + 'cms/ca/bind/'), //老用户绑定
+    API_USER_UNBIND: addToken(API_308_URL + 'cms/ca/unbind/'), //解除绑定
     API_USER_REGISTER: addToken(API_308_URL + 'cms/ca/register/'), //新用户注册
     API_USER_GET_SHORT_MESSAGE: addToken(API_308_URL + 'captcha/short_message/register/'), //获取短信验证码
     MY_SET_WX: XCX_308_URL+'api/my/set/wx/',

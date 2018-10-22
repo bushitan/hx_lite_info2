@@ -1,5 +1,6 @@
 // pages/roster/roster.js
 var API = require('../../utils/api.js');
+var Auth = require('../../utils/auth.js');
 var GP
 Page({
 
@@ -16,18 +17,28 @@ Page({
             method: "POST",
             data: {
                 search_uid: roster_id,
-                uid: wx.getStorageSync(API.KEY_HX_UID)
+                uid: wx.getStorageSync(API.KEY_HX_UID) || -1,
             },
             success: function (res) {
                 console.log(res.data)
+
+                if (res.data.status.code == 11107) {
+                    Auth.out()
+                    return
+                }
+                else {
+                    GP.setData({
+                        userInfo: res.data.data
+                    })
+
                 // var rosterList = GP.data.rosterList
                 // rosterList = rosterList.concat(res.data.data.content) //新增文章拼接
                 // GP.setData({
                 //     rosterList: rosterList,
                 //     last: res.data.data.last,
                 //     scrollLock: false,
-                // })
-            },
+                }
+            }
         })
     },
 
@@ -42,13 +53,13 @@ Page({
         GP = this
 
         var roster_id = options.roster_id
-        // GP.getRoster(roster_id)
-        GP.setData({
-            logo : options.logo, 
-            contactName: options.contactName, 
-            companyName: options.companyName,
-            productionTypeName: options.productionTypeName,
-        })
+        GP.getRoster(roster_id)
+        // GP.setData({
+        //     logo : options.logo, 
+        //     contactName: options.contactName, 
+        //     companyName: options.companyName,
+        //     productionTypeName: options.productionTypeName,
+        // })
         // GP.setRoster(logo, contactName, companyName)
     },
 

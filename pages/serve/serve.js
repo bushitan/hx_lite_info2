@@ -146,10 +146,32 @@ Page({
         // })
     },
 
-    bind(){
+    bind() {
         wx.redirectTo({
             url: '/pages/serve_bind/serve_bind',
         })
+    },
+
+    unbind() {
+        API.Request({
+            url: API.API_USER_UNBIND,
+            method: "POST",
+            data: {
+                openid: wx.getStorageSync(API.KEY_OPENID),
+            },
+            success: function (res) {
+                console.log(res.data)
+                // var isBind = true
+                // if (res.data.status.code == 11109)
+                //     isBind = false
+                GP.setData({
+                    isBind: false,
+                })
+            },
+        })
+        // wx.redirectTo({
+        //     url: '/pages/serve_bind/serve_bind',
+        // })
     },
 
     /**

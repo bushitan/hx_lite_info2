@@ -4,22 +4,22 @@
     <image class='bg_image' src='../../images/roster_bg.jpg'></image>
     <view class='logo'>
  
-        <image class='logo_image'  src=' {{logo=="null"?"../../images/logo_null.jpg":logo}}'></image>
+        <image class='logo_image'  src=' {{logo=="null"?"../../images/logo_null.jpg":userInfo.logo}}'></image>
     </view>
 </view>
 <view style='height:50px'></view>
 <view class='summary'>
     <view class='node'>
         <view class='title'>姓名</view>
-        <view class='des'> {{contactName}}</view>
+        <view class='des'> {{userInfo.contactName}}</view>
     </view>
     <view class='node'>
         <view class='title'>公司</view>
-        <view class='des'>  {{companyName}} </view>
+        <view class='des'>  {{userInfo.companyName}} </view>
     </view>
      <view class='node' hidden='{{productionTypeName==""}}'>
         <view class='title'>产品</view>
-        <view class='des'>  {{productionTypeName}} </view>
+        <view class='des'>  {{userInfo.productionTypeName}} </view>
     </view>
     <!-- <view class='node' hidden='{{roster.buy==""}}'>
         <view class='title'>供应</view>

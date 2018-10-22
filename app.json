@@ -32,12 +32,6 @@
                 "selectedIconPath": "images/info_select.png"
             },
             {
-                "pagePath": "pages/subject/subject",
-                "text": "专栏",
-                "iconPath": "images/subject_unselect.png",
-                "selectedIconPath": "images/subject_select.png"
-            },
-            {
                 "pagePath": "pages/meet/meet",
                 "text": "活动",
                 "iconPath": "images/match_unselect1.png",
