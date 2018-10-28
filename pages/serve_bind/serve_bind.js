@@ -45,7 +45,7 @@ Page({
                 "openid": wx.getStorageSync(API.KEY_OPENID),
 
                 // "openid": "1121", 
-                "username": GP.data.oldAccount ,
+                "account": GP.data.oldAccount ,
                 "password": GP.data.oldPassword ,
                 // "account": "zhangsan",
                 // "password": "12345678",
