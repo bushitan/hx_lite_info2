@@ -47,10 +47,25 @@ function out(){
     wx.showModal({
         title: '权限不足',
         content: '请在"服务"进行会员绑定。若已绑定，请联系管理员开通更高级别会员',
-        success: function () {
-            wx.switchTab({
-                url: '/pages/serve/serve',
-            })
+
+        confirmText:"会员绑定",
+        cancelText: "联系客服",
+        success: function (res) {
+            if (res.confirm) {
+                wx.switchTab({
+                    url: '/pages/serve/serve',
+                })
+            } else {
+                wx.navigateBack({
+                    success:function(){
+
+                        wx.makePhoneCall({
+                            phoneNumber: '0771-5553301' //仅为示例，并非真实的电话号码
+                            // success
+                        })
+                    },
+                })
+            }
         },
     })
 }

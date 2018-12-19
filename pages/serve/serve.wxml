@@ -18,7 +18,13 @@
         </view>
     </view>
 
-    <view  style='height:10px;' ></view>   
+ <!-- 会员绑定 -->
+    <view class='bind' wx:if="{{isBind}}" >
+        <button  catchtap='unbind'>解除当前会员账号绑定</button>
+    </view>
+    <view class='bind' wx:else >
+        <button type='primary' catchtap='bind'>华讯会员绑定</button>
+    </view>
 
     <view class='navigte ' >
         <xx-navigte  open_type="redirect">
@@ -63,11 +69,6 @@
     </view>  
 
  
-    <!-- 会员绑定 -->
-    <view class='bind' wx:if="{{isBind}}" >
-        <button  catchtap='unbind'>解除当前会员账号绑定</button>
-    </view>
-    <view class='bind' wx:else >
-        <button type='primary' catchtap='bind'>华讯会员绑定</button>
-    </view>
+    <view  style='height:30px;' ></view>   
+   
 </block>
