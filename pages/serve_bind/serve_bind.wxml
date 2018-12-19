@@ -20,11 +20,17 @@
     <view class='title'>
         请选择登陆方式
     </view>
+    <view style='height:15px;'></view>
     <view class='des'>
-        <button type='primary' class='btn' catchtap='setPageStatus' data-value="2">已注册用户</button>
-        <view style='height:15px;'></view>
-        <button class='btn' catchtap='setPageStatus' data-value="3">新用户</button>
-        <view style='height:15px;'></view>
+        <button type='primary' class='btn' catchtap='setPageStatus' data-value="2">网站会员登录</button>
+        <view style='height:5px;'></view>
+        <view class='sub_title'>已注册华讯网站会员登陆入口</view>
+        <view style='height:5px;'></view>
+        
+        <button type='warn' class='btn' catchtap='setPageStatus' data-value="3">新用户登录</button>
+        <view style='height:5px;'></view>
+        <view class='sub_title'>新用户登录入口</view>
+        <view style='height:5px;'></view>
         <navigator open-type="switchTab" url="/pages/serve/serve">
             <button>返回</button>
         </navigator>
@@ -34,12 +40,13 @@
 <!-- 已注册用户登录 -->
 <template name="is_register">
     <view class='title'>
-        已注册用户绑定
+        华讯网站会员登录
     </view>
+    <view class='sub_title'>输入您在网站的登陆账号和密码，然后点击下方的“绑定”即可同步网站的会员权限，查阅小程序中的各类会员资讯。</view>
     <view class='input' >
-        <xx-input name="账号" placeholder="请输入姓名" bindinput='bindAccount' value='{{oldAccount}}'></xx-input>
+        <xx-input name="账号" placeholder="请输入华讯网站账号" bindinput='bindAccount' value='{{oldAccount}}'></xx-input>
         <view class='line__gray'></view> 
-        <xx-input name="密码" placeholder="请输入姓名" bindinput='bindPassword' value='{{oldPassword}}'></xx-input>
+        <xx-input name="密码" placeholder="请输入华讯网站密码" bindinput='bindPassword' value='{{oldPassword}}'></xx-input>
     </view>       
      <view style='height:25px;'></view>
     <view class='des'>
@@ -53,6 +60,7 @@
     <view class='title'>
         新用户登录
     </view>
+    <view class='sub_title'>输入您的手机号后，点击“获取验证码”，随即将手机短信收到的验证码填入并点下方的“注册”完成。</view>
     <view class='input' >
         <xx-input 
             name="手机" 

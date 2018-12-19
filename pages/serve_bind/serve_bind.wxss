@@ -3,7 +3,14 @@
     font-size: 14pt;
     font-weight: bolder;
     text-align: center;
-    padding: 100px 0 30px;
+    padding: 100px 0 15px;
+}
+.sub_title{
+    font-size: 9pt;
+    color: #888;
+    text-align: center;
+    padding: 0 15px 15px; 
+    /* padding: 100px 0 30px; */
 }
 .des{
     padding: 0 15px;
