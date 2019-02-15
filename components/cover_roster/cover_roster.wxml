@@ -1,15 +1,14 @@
 <!--components/xx_cover_news/xx_cover_news.wxml-->
- 
 
 <view class='cover'>
     <block wx:for="{{list}}" wx:key="item">
-        <view wx:if="{{item.contactName != null}}">
+        <!-- <view wx:if="{{item.contactName != null}}"> -->
             <navigator 
             url='/pages/roster_info/roster_info?roster_id={{item.uid}}&logo={{item.logo}}&contactName={{item.contactName}}&companyName={{item.companyName}}&productionTypeName={{item.productionTypeName}}' 
             class='node'> 
                 <image class='right' src='{{item.logo==null?"../../images/logo_null.jpg":item.logo}}' mode='aspectFit'></image>
                 <view class='left'>
-                    <view class='title'>{{item.contactName}}</view>
+                    <view class='title'>{{item.contactName||""}}</view>
                     <!-- <view style='height:4px'></view> -->
                     <view class='time'>{{item.companyName}}</view>
                     <view style='height:4px'></view>
@@ -20,7 +19,7 @@
             </navigator>
             <view style='height:15px'></view>
             <!-- <view class='line__gray'></view> -->
-        </view>
+        <!-- </view> -->
     </block>
 </view>
 

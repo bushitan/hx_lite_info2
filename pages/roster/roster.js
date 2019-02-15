@@ -24,6 +24,7 @@ Page({
             GP.onInit()
     },
     onInit(){
+        pageNO = 1
         GP.setData({
             rosterList: [],
             industryID: wx.getStorageSync(API.KEY_INDUSTRYID),
