@@ -33,6 +33,10 @@ Component({
             type:Array,
             value:[],
         },
+        password: {
+            type: Boolean,
+            value: false,
+        },
   },
 
   /**

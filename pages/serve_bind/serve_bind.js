@@ -157,7 +157,7 @@ Page({
                 "openid": wx.getStorageSync(API.KEY_OPENID),
                 "mobile": GP.data.newPhone,
                 "code": GP.data.newCode,
-                "industry_id": 1, //默认松香行业
+                "industry_id": wx.getStorageSync(API.KEY_INDUSTRYID) || 1, //默认松香行业
             },
             success: function (res) {
                 console.log(res.data)

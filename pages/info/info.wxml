@@ -21,7 +21,6 @@
 <scroll-view class='scroll_view_y'  scroll-y="true" bindscrolltolower="scrollBottom" > 
   <view style='height: 55px'> </view>
     <xx-swiper
-        
     ></xx-swiper>
    
     <view style='height: 10px'> </view>

@@ -46,7 +46,7 @@
     <view class='input' >
         <xx-input name="账号" placeholder="请输入华讯网站账号" bindinput='bindAccount' value='{{oldAccount}}'></xx-input>
         <view class='line__gray'></view> 
-        <xx-input name="密码" placeholder="请输入华讯网站密码" bindinput='bindPassword' value='{{oldPassword}}'></xx-input>
+        <xx-input name="密码" placeholder="请输入华讯网站密码" bindinput='bindPassword' value='{{oldPassword}}' password="true"></xx-input>
     </view>       
      <view style='height:25px;'></view>
     <view class='des'>

@@ -44,3 +44,15 @@ App({
 //             "iconPath": "images/subject_unselect.png",
 //                 "selectedIconPath": "images/subject_select.png"
 // },
+
+// "pages/member/member",
+//     "pages/info/info",
+//     "pages/industry/industry",
+//     "pages/roster_info/roster_info",
+//     "pages/article/article",
+//     "pages/subject/subject",
+//     "pages/meet/meet",
+//     "pages/serve/serve",
+//     "pages/serve_bind/serve_bind",
+//     "pages/roster/roster",
+//     "pages/logs/logs"

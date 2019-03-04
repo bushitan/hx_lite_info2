@@ -41,12 +41,6 @@
 					"query": ""
 				},
 				{
-					"id": 1,
-					"name": "专栏",
-					"pathName": "pages/subject/subject",
-					"query": ""
-				},
-				{
 					"id": 2,
 					"name": "活动",
 					"pathName": "pages/meet/meet",
@@ -62,12 +56,6 @@
 					"id": -1,
 					"name": "商圈",
 					"pathName": "pages/roster/roster",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "加入会员",
-					"pathName": "pages/member/member",
 					"query": ""
 				},
 				{

@@ -27,11 +27,11 @@
 
     <view style='height:15px;'></view>
     <view class='des'>
-        <view class='des_title'>年费订阅</view>
-        <view class='des_price'>￥ <label>{{price}}</label></view>
+        <!-- <view class='des_title'>年费订阅</view> -->
+        <!-- <view class='des_price'>￥ <label>{{price}}</label></view> -->
     </view>
     <view style='height:15px;'></view>
-    <view class='btn' catchtap='createPayPage'>开通会员</view>
+    <!-- <view class='btn' catchtap='createPayPage'>开通会员</view> -->
     <view style='height:25px;'></view>
     <view class='line__gray'></view>
      <view style='height:5px;'></view> 
