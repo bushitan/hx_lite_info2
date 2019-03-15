@@ -15,6 +15,8 @@ Page({
         industryID:null,
         rows:20,
         // pageNO:1,
+
+        swiperList:[],//轮播图列表
     },
     change() {
         wx.redirectTo({
@@ -28,6 +30,38 @@ Page({
     onInit(options){
         GP.getCategoryList(GP.data.industryID)
         GP.getHXUserID()//过去HX大平台的用户id
+
+
+        GP.switchSwiper()
+    },
+    //更改轮播图
+    switchSwiper(){
+        var industryID = GP.data.industryID
+        var list
+        if (industryID == 1)
+            list = [
+                { url: "../../images/swiper/1_1.jpg" },
+            ]
+        if (industryID == 2)
+            list = [
+                { url: "../../images/swiper/2_1.jpg" },
+                { url: "../../images/swiper/2_2.jpg" },
+            ]
+        if (industryID == 3)
+            list = [
+                { url: "../../images/swiper/3_1.jpg" },
+                { url: "../../images/swiper/3_2.jpg" },
+                { url: "../../images/swiper/3_3.jpg" },
+            ]
+        if (industryID == 4)
+            list = [
+                { url: "../../images/swiper/4_1.jpg" },
+                { url: "../../images/swiper/4_2.jpg" },
+                { url: "../../images/swiper/4_3.jpg" },
+            ]
+        GP.setData({
+            swiperList: list
+        })
     },
 
     getHXUserID(){
