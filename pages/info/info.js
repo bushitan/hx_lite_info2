@@ -40,7 +40,7 @@ Page({
         var list
         if (industryID == 1)
             list = [
-                { url: "../../images/swiper/1_1.jpg" },
+                { url: "../../images/swiper/2020-3-30-1.jpg" },
             ]
         if (industryID == 2)
             list = [
@@ -51,13 +51,14 @@ Page({
             list = [
                 { url: "../../images/swiper/3_1.jpg" },
                 { url: "../../images/swiper/3_2.jpg" },
-                { url: "../../images/swiper/3_3.jpg" },
+                // { url: "../../images/swiper/3_3.jpg" },
             ]
         if (industryID == 4)
             list = [
-                { url: "../../images/swiper/4_1.jpg" },
-                { url: "../../images/swiper/4_2.jpg" },
-                { url: "../../images/swiper/4_3.jpg" },
+                { url: "../../images/swiper/2020-3-30-2.jpg" },
+                // { url: "../../images/swiper/4_1.jpg" },
+                // { url: "../../images/swiper/4_2.jpg" },
+                // { url: "../../images/swiper/4_3.jpg" },
             ]
         GP.setData({
             swiperList: list

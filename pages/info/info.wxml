@@ -9,7 +9,7 @@
             colorselect="#f6c654"   -->
         <xx-tab
             list="{{categoryList}}"
-            mode="scroll"    
+            mode="menu"    
             colorunselect="#888" 
             colorselect="#1c82d4"  
             bind:click="clickTag"

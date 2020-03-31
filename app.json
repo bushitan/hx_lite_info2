@@ -1,16 +1,16 @@
 {
-  "pages":[
-    "pages/info/info",
-    "pages/industry/industry",
-    "pages/roster_info/roster_info",
-    "pages/article/article",
-    "pages/meet/meet",
-    "pages/serve/serve",
-    "pages/serve_bind/serve_bind",
-    "pages/roster/roster",
-    "pages/subject/subject",
-    "pages/logs/logs"
-  ],
+    "pages": [
+        "pages/info/info",
+        "pages/industry/industry",
+        "pages/roster_info/roster_info",
+        "pages/article/article",
+        "pages/meet/meet",
+        "pages/serve/serve",
+        "pages/serve_bind/serve_bind",
+        "pages/roster/roster",
+        "pages/subject/subject",
+        "pages/logs/logs"
+    ],
     "window": {
         "navigationBarBackgroundColor": "#1c82d4",
         "backgroundTextStyle": "light",
@@ -55,5 +55,6 @@
         "uploadFile": 30000,
         "downloadFile": 15000
     },
-    "debug": true
+    "debug": true,
+    "sitemapLocation": "sitemap.json"
 }
