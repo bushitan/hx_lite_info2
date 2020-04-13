@@ -19,12 +19,12 @@
   
 </view>
 <scroll-view class='scroll_view_y'  scroll-y="true" bindscrolltolower="scrollBottom" > 
-  <view style='height: 55px'> </view>
+  <view style='height: 46px'> </view>
     <xx-swiper
         list="{{swiperList}}"
     ></xx-swiper>
    
-    <view style='height: 10px'> </view>
+    <!-- <view style='height: 10px'> </view> -->
     <view class='article'>
             <!-- list="{{articleList}}" -->
         <xx-cover

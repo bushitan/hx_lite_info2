@@ -38,6 +38,7 @@ Page({
             return 
         }
 
+        var that = this
         API.Request({
             url: API.API_USER_BIND,
             method:"POST",
@@ -52,11 +53,13 @@ Page({
             },
             success: function (res) {
                 console.log(res.data)
+               
                 if (res.data.status.code == 0) {
                     wx.showModal({
                         title: "绑定成功",
                         showCancel: false,
                         success: function () {
+                            that.getHXUserID()
                             wx.switchTab({ url: '/pages/serve/serve', })
                         },
                     }) 
@@ -72,6 +75,23 @@ Page({
             },
         })
     },
+
+
+    getHXUserID() {
+        API.Request({
+            url: API.API_USER_CHECK,
+            method: "POST",
+            data: { openid: wx.getStorageSync(API.KEY_OPENID), },
+            success: function (res) {
+                if (res.data.status.code == 11013)
+                    wx.setStorageSync(API.KEY_HX_UID, "")  //没有权限，重置
+                else
+                    wx.setStorageSync(API.KEY_HX_UID, res.data.data.uid)
+
+            },
+        })
+    },
+
 
     // 新用户注册
     registerPhone(e) { GP.setData({ newPhone: e.detail }) },
@@ -161,6 +181,17 @@ Page({
             },
             success: function (res) {
                 console.log(res.data)
+                if (res.data.status.code == 11103){
+                    wx.showModal({
+                        title: "该手机号已绑定",
+                        content: '请从"网站会员登录"入口登录',
+                        showCancel: false,
+                        success: function () {
+                            wx.switchTab({ url: '/pages/serve/serve', })
+                        }
+                    })
+                    return
+                }
                 if (res.data.status.code == 11104) {
                     wx.showModal({
                         title: res.data.status.message,

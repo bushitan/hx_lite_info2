@@ -5,6 +5,7 @@
 </view>
 <xx-cover
     list="{{articleList}}"
+    catch:click="navToMeet"
 >
 </xx-cover>
 <xx-loading more="{{false}}"></xx-loading>

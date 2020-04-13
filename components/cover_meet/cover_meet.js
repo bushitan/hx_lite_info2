@@ -29,8 +29,9 @@ Component({
    */
   methods: {
       click(e) {
-          
-          this.triggerEvent('click', this.data.list[this.data.selectIndex]);
+
+        //   this.triggerEvent('click', this.data.list[this.data.selectIndex]);
+          this.triggerEvent('click');
       },
   }
 })

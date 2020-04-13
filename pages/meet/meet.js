@@ -32,6 +32,21 @@ Page({
         })
        
     },
+
+    navToMeet(){
+        // console.log("123")
+        wx.navigateToMiniProgram({
+            appId: 'wx3efaa3a88f42df6b',
+            // path: 'page/index/index?id=123',
+            // extraData: {
+            //     foo: 'bar'
+            // },
+            // envVersion: 'develop',
+            // success(res) {
+            //     // 打开成功
+            // }
+        })
+    },
     /**
      * 用户点击右上角分享
      */

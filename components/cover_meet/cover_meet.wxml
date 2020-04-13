@@ -2,12 +2,11 @@
 
 <view class='cover'>
     <block wx:for="{{list}}" wx:key="item">
-       <navigator target="miniProgram" open-type="navigate" app-id="wx3efaa3a88f42df6b" path="" extra-data="" version="release"
-       class='node'> 
+       <view class='node' catchtap='click'> 
             <image class='image' src='{{item.cover}}' mode='widthFit'></image>
             <view class='title'>{{item.title}}</view>
             <view class='time'>{{item.issue_time}}</view>
-        </navigator>
+        </view>
         <!-- <view class='line__gray'></view> -->
         <view style='height:10px'></view>
     </block>

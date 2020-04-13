@@ -50,6 +50,9 @@
             }
         ]
     },
+    "navigateToMiniProgramAppIdList":[
+        "wx3efaa3a88f42df6b"
+    ],
     "networkTimeout": {
         "request": 30000,
         "uploadFile": 30000,

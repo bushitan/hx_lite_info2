@@ -9,7 +9,7 @@
 </view>
 <view style='height:50px'></view>
 <view class='summary'>
-    <view class='node'>
+    <view class='node' hidden='{{userInfo.contactName==null}}'>
         <view class='title'>姓名</view>
         <view class='des'> {{userInfo.contactName}}</view>
     </view>
@@ -17,7 +17,11 @@
         <view class='title'>公司</view>
         <view class='des'>  {{userInfo.companyName}} </view>
     </view>
-     <view class='node' hidden='{{productionTypeName==""}}'>
+     <view class='node' hidden='{{userInfo.mobile==""}}'>
+        <view class='title'>电话</view>
+        <view class='des'>  {{userInfo.mobile}} </view>
+    </view>
+     <view class='node' hidden='{{userInfo.productionTypeName==""}}'>
         <view class='title'>产品</view>
         <view class='des'>  {{userInfo.productionTypeName}} </view>
     </view>
@@ -26,3 +30,14 @@
         <view class='des'>  {{roster.buy}} </view>
     </view>  -->
 </view>
+
+<!-- 
+companyName: "广西梧州松脂股份有限公司"
+contactName: "杨满生"
+headShip: "销售总监"
+logo: "http://www.308308.com/_m/uploads/company/2013/12/31/未标题-101_1.jpg"
+mobile: "0774-3811684"
+operationName: "生产企业"
+productionName: null
+productionTypeName: "松节油产品,松香产品,松香深加工产品"
+uid: 2941 -->

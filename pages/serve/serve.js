@@ -153,22 +153,33 @@ Page({
     },
 
     unbind() {
-        API.Request({
-            url: API.API_USER_UNBIND,
-            method: "POST",
-            data: {
-                openid: wx.getStorageSync(API.KEY_OPENID),
-            },
-            success: function (res) {
-                console.log(res.data)
-                // var isBind = true
-                // if (res.data.status.code == 11109)
-                //     isBind = false
-                GP.setData({
-                    isBind: false,
-                })
+        wx.showModal({
+            title: '是否解绑？',
+            content: '解绑后请选择"网站会员登录"绿色按钮登录',
+            success:function(res){
+                if(res.confirm){
+                    API.Request({
+                        url: API.API_USER_UNBIND,
+                        method: "POST",
+                        data: {
+                            openid: wx.getStorageSync(API.KEY_OPENID),
+                        },
+                        success: function (res) {
+                            console.log(res.data)
+                            // var isBind = true
+                            // if (res.data.status.code == 11109)
+                            //     isBind = false
+                            GP.setData({
+                                isBind: false,
+                            })
+                        },
+                    })
+                }
             },
         })
+
+
+       
         // wx.redirectTo({
         //     url: '/pages/serve_bind/serve_bind',
         // })
