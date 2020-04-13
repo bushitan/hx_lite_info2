@@ -2,6 +2,7 @@
 var API = require('../../utils/api.js');
 var GP
 var pageNO = 1
+var app = getApp()
 Page({
 
     /**
@@ -17,6 +18,8 @@ Page({
         // pageNO:1,
 
         swiperList:[],//轮播图列表
+
+        bannerList:[],
     },
     change() {
         wx.redirectTo({
@@ -35,33 +38,66 @@ Page({
         GP.switchSwiper()
     },
     //更改轮播图
-    switchSwiper(){
+    async switchSwiper(){
+       
+        // console.log(industryID)
         var industryID = GP.data.industryID
-        var list
-        if (industryID == 1)
-            list = [
-                { url: "../../images/swiper/2020-3-30-1.jpg" },
-            ]
-        if (industryID == 2)
-            list = [
-                { url: "../../images/swiper/2_1.jpg" },
-                { url: "../../images/swiper/2_2.jpg" },
-            ]
-        if (industryID == 3)
-            list = [
-                { url: "../../images/swiper/3_1.jpg" },
-                { url: "../../images/swiper/3_2.jpg" },
-                // { url: "../../images/swiper/3_3.jpg" },
-            ]
-        if (industryID == 4)
-            list = [
-                { url: "../../images/swiper/2020-3-30-2.jpg" },
-                // { url: "../../images/swiper/4_1.jpg" },
-                // { url: "../../images/swiper/4_2.jpg" },
-                // { url: "../../images/swiper/4_3.jpg" },
-            ]
+        var list ,banner
+        
+        if (industryID == 1){
+            var res = await app.db.swiperGetListByTag({tag_id:76}) // swiper 轮播
+            list = res.data.article_list
+            var res = await app.db.swiperGetListByTag({tag_id:77}) //banner 广告
+            banner = res.data.article_list
+        }
+        if (industryID == 2){
+            var res = await app.db.swiperGetListByTag({tag_id:78}) // swiper 轮播
+            list = res.data.article_list
+            var res = await app.db.swiperGetListByTag({tag_id:79}) //banner 广告
+            banner = res.data.article_list
+        }
+        if (industryID == 3){
+            var res = await app.db.swiperGetListByTag({tag_id:80}) // swiper 轮播
+            list = res.data.article_list
+            var res = await app.db.swiperGetListByTag({tag_id:81}) //banner 广告
+            banner = res.data.article_list
+        }
+        if (industryID == 4){
+            var res = await app.db.swiperGetListByTag({tag_id:82}) // swiper 轮播
+            list = res.data.article_list
+            var res = await app.db.swiperGetListByTag({tag_id:83}) //banner 广告
+            banner = res.data.article_list
+        }
+
+        // // console.log(res)
+        
+        // var industryID = GP.data.industryID
+        // var list
+        // if (industryID == 1)
+        //     list = [
+        //         { url: "../../images/swiper/2020-3-30-1.jpg" },
+        //     ]
+        // if (industryID == 2)
+        //     list = [
+        //         { url: "../../images/swiper/2_1.jpg" },
+        //         { url: "../../images/swiper/2_2.jpg" },
+        //     ]
+        // if (industryID == 3)
+        //     list = [
+        //         { url: "../../images/swiper/3_1.jpg" },
+        //         { url: "../../images/swiper/3_2.jpg" },
+        //         // { url: "../../images/swiper/3_3.jpg" },
+        //     ]
+        // if (industryID == 4)
+        //     list = [
+        //         { url: "../../images/swiper/2020-3-30-2.jpg" },
+        //         // { url: "../../images/swiper/4_1.jpg" },
+        //         // { url: "../../images/swiper/4_2.jpg" },
+        //         // { url: "../../images/swiper/4_3.jpg" },
+        //     ]
         GP.setData({
-            swiperList: list
+            swiperList: list,
+            bannerList:banner,
         })
     },
 
@@ -109,6 +145,7 @@ Page({
     },
     //获取文章列表
     getArticleList(){
+        var that = this
         API.Request({
             url: API.API_INFO_GET_ARTICLE_LIST,
             method: "POST",
@@ -123,6 +160,14 @@ Page({
 
                 var article_list = GP.data.articleList
                 article_list = article_list.concat(res.data.data.content) //新增文章拼接
+
+                if(pageNO==1) { //拼接第一个广告
+                    var bannerList =  that.data.bannerList
+                    if(bannerList.length > 0){
+                        bannerList[0].is_ad = true                        
+                        article_list = article_list.concat(bannerList) 
+                    }
+                }
                 GP.setData({
                     articleList: article_list,
                     last: res.data.data.last,

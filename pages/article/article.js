@@ -77,7 +77,7 @@ Page({
     onShareAppMessage: function () {
         return {
             title:"华讯生物圈",
-            imageUrl: "../../images/share.png",
+            // imageUrl: "../../images/share.png",
         }
     }
 })

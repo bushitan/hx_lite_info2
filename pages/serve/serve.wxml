@@ -26,7 +26,7 @@
         <button type='primary' catchtap='bind'>华讯会员绑定</button>
     </view>
 
-    <view class='navigte ' v-if="false" >
+    <view class='navigte ' wx:if="{{false}}" >
         <xx-navigte  open_type="redirect">
             <!-- <image slot="icon" class='icon' src="../../images/my_vip.png"></image> -->
             <view slot="left" >信息</view> 

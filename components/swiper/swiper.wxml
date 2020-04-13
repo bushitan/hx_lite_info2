@@ -8,7 +8,7 @@
         <block wx:for="{{list}}" wx:key="index">
             <swiper-item class="swiper-item">
                 <image  class='image'
-                 src="{{item.url}}"   
+                 src="{{item.cover}}"   
                 catchtap="click" data-index="{{index}}"/>
             </swiper-item>
         </block> 

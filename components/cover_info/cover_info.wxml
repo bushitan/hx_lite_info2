@@ -18,14 +18,21 @@
 
 <view class='cover'>
     <block wx:for="{{list}}" wx:key="item">
-        <navigator url='/pages/article/article?article_id={{item.article_id}}' class='node'> 
+
+        <!-- {{item.is_ad || false}} -->
+        <view class='node'  wx:if="{{item.is_ad == true}}" > 
+            <image class='right'  style="width:100%;" mode="widthFix"
+            src='{{item.cover}}' hidden='{{item.cover==""}}'></image>
+        </view>
+        <navigator url='/pages/article/article?article_id={{item.article_id}}' class='node' wx:else>   
             <view class='left'>
                 <view class='title'>{{item.title}}</view>
                 <view class='time'>{{item.release_date}}</view>
             </view>
             <!-- {{item.image==""}}{{item.image}} -->
             <image class='right' src='{{item.image}}' hidden='{{item.image==""}}'></image>
-        </navigator>
+        </navigator>       
+
         <view class='line__gray'></view>
     </block>
 </view>
