@@ -107,16 +107,34 @@ class db {
                 start_index:0,
                 end_index : 10,
             }
-            wx.request({
-                url: "https://xcx.308308.com/huaxun_2/api/article/get_list/tag/",
-                // url: "https://xcx.308308.com/huaxun_2/api/article/index/",
-                data:obj,
-                method: "GET",
-                // data: { openid: wx.getStorageSync(API.KEY_OPENID),},
-                success: function (res) {
-                    reslove(res)
-                },
-            })
+            // wx.request({
+            //     url: "https://xcx.308308.com/huaxun_2/api/article/get_list/tag/",
+            //     // url: "https://xcx.308308.com/huaxun_2/api/article/index/",
+            //     data:obj,
+            //     method: "GET",
+            //     // data: { openid: wx.getStorageSync(API.KEY_OPENID),},
+            //     success: function (res) {
+            //         reslove(res)
+            //     },
+			// })
+			
+			 
+			wx.cloud.callFunction({
+				name: "api", 
+				data:{
+					url: "https://xcx.308308.com/huaxun_2/api/article/get_list/tag/?tag_id=80&start_index=0&end_index=10",
+					method:  "GET",
+				},
+			})
+			.then (r =>{
+					var res ={
+						data: r.result
+					}
+
+					reslove(res)
+			}) 
+			
+	
         })
     }
 

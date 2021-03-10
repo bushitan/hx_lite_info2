@@ -92,6 +92,7 @@ function Request() {
     var API_LOGIN_ING = 1           //登陆中
     var API_LOGIN_SUCCESS = 2   //已登录
     var API_LIVE = 3
+    var API_LIVE_LOGIN = 3
     //重连次数
     this.Request = function (options) {
         Init() //请求初始化
@@ -130,7 +131,7 @@ function Request() {
         options['live'] = API_LIVE //请求重连生命周期
         if (GlobalData.apiIsLogin == API_LOGIN_NONE) {     //未登录
             GlobalData.apiPreList.push(options)
-            _RequestLogin()
+            _RequestLogin(options)
             GlobalData.apiIsLogin = API_LOGIN_ING
         }
         else if (GlobalData.apiIsLogin == API_LOGIN_ING) {  //登陆中
@@ -141,33 +142,72 @@ function Request() {
         }
     }
 
-    function _RequestLogin() {
+    function _RequestLogin(options) {
+
         wx.login({
             success: function (res) {
-                var _session = wx.getStorageSync(KEY_SESSION)
-                _Request({
-                    'live': API_LIVE,
-                    'url': loginUrl,
-                    'data': {
-                        js_code: res.code,
-                        session: _session,
-                    },
-                    'success': function (res) {
-                        var object = res.data
-                        wx.setStorageSync(KEY_OPENID, res.data.openid)
-                        wx.setStorageSync(KEY_SESSION, res.data.session)
-                        wx.setStorageSync(KEY_TOKEN, res.data.token)
-                        // wx.setStorageSync(KEY.USER_INFO, res.data.dict_user)
+                // var _session = wx.getStorageSync(KEY_SESSION)
+                // _Request({
+                //     'live': API_LIVE,
+                //     'url': loginUrl,
+                //     'data': {
+                //         js_code: res.code,
+                //         session: _session,
+                //     },
+                //     'success': function (res) {
+                //         var object = res.data
+                //         wx.setStorageSync(KEY_OPENID, res.data.openid)
+                //         wx.setStorageSync(KEY_SESSION, res.data.session)
+                //         wx.setStorageSync(KEY_TOKEN, res.data.token)
+                //         // wx.setStorageSync(KEY.USER_INFO, res.data.dict_user)
 
+                //         GlobalData.apiIsLogin = API_LOGIN_SUCCESS //登陆成功
+                //         // 执行login == false时的请求
+                //         for (var i in GlobalData.apiPreList) {
+                //             _Request(GlobalData.apiPreList[i])
+                //         }
+                //         GlobalData.apiPreList = []
+
+                //     },
+                // })
+
+                API_LIVE_LOGIN = API_LIVE_LOGIN - 1
+
+                if(API_LIVE_LOGIN<0)
+                    return
+ 
+                    
+
+                wx.cloud.callFunction({
+                    name: "login", 
+                })
+                .then (res =>{
+                        var object = res.result
+                        console.log(object)
+                        
+                        wx.setStorageSync(KEY_OPENID, object.data.openid)
+                        wx.setStorageSync(KEY_SESSION, object.data.session)
+                        wx.setStorageSync(KEY_TOKEN, object.data.token)
+
+                                
                         GlobalData.apiIsLogin = API_LOGIN_SUCCESS //登陆成功
+                        // GlobalData.apiPreList = []
                         // 执行login == false时的请求
                         for (var i in GlobalData.apiPreList) {
                             _Request(GlobalData.apiPreList[i])
                         }
                         GlobalData.apiPreList = []
 
-                    },
+                }) 
+                .catch(res=>{
+                    if (options.fail != undefined)
+                        options.fail(res)
+                    if (options['live'] > 0)
+                        GlobalData.apiFailList.push(options) //将请求加入失败队列
                 })
+
+
+
             },
             fail: function (res) {
                 console.log("fail", res)
@@ -189,38 +229,77 @@ function Request() {
             _session = "false"
         // data['session'] = _session  //每个请求都加session
         // data['app_id'] = APP_ID  //每个请求都加session
-        wx.request
-            ({
+
+        
+        // wx.request
+        //     ({
+        //         url: addToken1(options.url),
+        //         method: options.method || "GET",
+        //         header: options.header || {'content-type': 'application/json'},
+        //         data: data,
+        //         success: function (res) {                    
+        //             addLog(options.url ,true, JSON.stringify(res) )
+
+        //             if (res.data.status.code == 10020){
+        //                 GlobalData.apiPreList.push(options)
+        //                 _RequestLogin()
+        //                 return
+        //             }
+
+
+        //             if (options.success != undefined)
+        //                 options.success(res)
+        //         },
+        //         fail: function (res) {
+                    
+        //             addLog(options.url ,false, JSON.stringify(res) )
+        //             if (options.fail != undefined)
+        //                 options.fail(res)
+        //             if (options['live'] > 0)
+        //                 GlobalData.apiFailList.push(options) //将请求加入失败队列
+        //         },
+        //         complete: function (res) {
+        //             if (options.complete != undefined)
+        //                 options.complete(res)
+        //         },
+        //     })
+
+        
+        wx.cloud.callFunction({
+            name: "api", 
+            data:{
                 url: addToken1(options.url),
                 method: options.method || "GET",
                 header: options.header || {'content-type': 'application/json'},
                 data: data,
-                success: function (res) {                    
-                    addLog(options.url ,true, JSON.stringify(res) )
+            },
+        })
+        .then (r =>{
+                var res ={
+                    data: r.result
+                }
+                
+                addLog(options.url ,true, JSON.stringify(res) )
 
-                    if (res.data.status.code == 10020){
-                        GlobalData.apiPreList.push(options)
-                        _RequestLogin()
-                        return
-                    }
+                if (res.data.status.code == 10020){
+                    GlobalData.apiPreList.push(options)
+                    _RequestLogin()
+                    return
+                }
+                if (options.success != undefined)
+                    options.success(res)
 
+        }) 
+        .catch(res=>{
+                addLog(options.url ,false, JSON.stringify(res) )
+                if (options.fail != undefined)
+                    options.fail(res)
+                if (options['live'] > 0)
+                    GlobalData.apiFailList.push(options) //将请求加入失败队列
+        })
 
-                    if (options.success != undefined)
-                        options.success(res)
-                },
-                fail: function (res) {
-                    
-                    addLog(options.url ,false, JSON.stringify(res) )
-                    if (options.fail != undefined)
-                        options.fail(res)
-                    if (options['live'] > 0)
-                        GlobalData.apiFailList.push(options) //将请求加入失败队列
-                },
-                complete: function (res) {
-                    if (options.complete != undefined)
-                        options.complete(res)
-                },
-            })
     }
+
+
 
 }

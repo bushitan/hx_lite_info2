@@ -7,13 +7,18 @@
             <view class="xx_menu__node_logo" catchtap="clickLogo">
                 <button open-type='getUserInfo' class='login' bindgetuserinfo="getUserInfo">
                     <image class='login_bg' src="../../images/click_login.png" wx:if="{{user==''}}"></image>
-                    <image class='login_bg' src="{{user.avatarUrl}}" wx:else></image>
+                    <!-- <image class='login_bg' src="{{user.avatarUrl}}" ></image> -->
+                    <open-data class='login_bg' type="userAvatarUrl" > </open-data>
                 </button>
                 <!-- <image class='logo_image' src="../../images/click_login.png"></image> -->
             </view>
             <view class="xx_menu__node_name">
-                    <view class="xx_text__title nickName">{{user.nickName}}</view>
-                    <view class="id" hidden='{{!user_id}}'>ID：{{user_id}}</view>
+            
+                <open-data class="xx_text__title nickName" type="userNickName"> </open-data>
+
+                    <!-- <view class="xx_text__title nickName">{{user.nickName}}</view>                     -->
+                <view class="id" >ID：{{uid}}</view>
+                <view class="id" >OPENID：{{openid}}</view>
             </view>
         </view>
     </view>

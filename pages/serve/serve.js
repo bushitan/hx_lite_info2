@@ -12,6 +12,8 @@ Page({
         pageStatus:1, //1 引导,2 老,3 新
         user:"",
         isBind:false,
+        uid:"",
+        openid:"",
     },
 
     getUserInfo(res){
@@ -129,6 +131,12 @@ Page({
             },
         })
 
+
+        this.setData({
+            uid:wx.getStorageSync(API.KEY_HX_UID) ,
+            openid:wx.getStorageSync(API.KEY_OPENID) ,
+        })
+ 
         // 2 用户登录，获取用户信息，并展示
         // wx.hideLoading()
         // GP.setData({

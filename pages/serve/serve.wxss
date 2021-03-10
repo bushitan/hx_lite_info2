@@ -44,7 +44,7 @@
 }
 .id {
     color: #fff;
-    font: 11pt;
+    font-size: 8pt;
 }
 /* 菜单  —— 图标、名字、箭头 */
 .xx_menu {
