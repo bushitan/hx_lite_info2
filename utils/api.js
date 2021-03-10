@@ -54,7 +54,22 @@ module.exports = {
 }
 
 
-
+function addLog(url,status,desc){
+    const db = wx.cloud.database()
+    db.collection('log').add({
+        data:{
+            url:url,
+            status:status,
+            desc:desc,
+            openid:wx.getStorageSync('openid'),
+            session:wx.getStorageSync('session'),
+            token:wx.getStorageSync('token'),
+            hx_uid:wx.getStorageSync('hx_uid'),
+            industryid:wx.getStorageSync('industryid'),
+            createTime:new Date().toString(),
+        }
+    })
+}
 
 
 
@@ -150,11 +165,13 @@ function Request() {
                             _Request(GlobalData.apiPreList[i])
                         }
                         GlobalData.apiPreList = []
+
                     },
                 })
             },
             fail: function (res) {
                 console.log("fail", res)
+               addLog("login" ,false,res.toString() )
             },
         });
     }
@@ -178,7 +195,9 @@ function Request() {
                 method: options.method || "GET",
                 header: options.header || {'content-type': 'application/json'},
                 data: data,
-                success: function (res) {
+                success: function (res) {                    
+                    addLog(options.url ,true, JSON.stringify(res) )
+
                     if (res.data.status.code == 10020){
                         GlobalData.apiPreList.push(options)
                         _RequestLogin()
@@ -190,6 +209,8 @@ function Request() {
                         options.success(res)
                 },
                 fail: function (res) {
+                    
+                    addLog(options.url ,false, JSON.stringify(res) )
                     if (options.fail != undefined)
                         options.fail(res)
                     if (options['live'] > 0)

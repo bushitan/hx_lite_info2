@@ -1,94 +1,109 @@
 {
-	"description": "项目配置文件。",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"enhance": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"nodeModules": true
-	},
-	"compileType": "miniprogram",
-	"libVersion": "1.9.98",
-	"appid": "wx51930c31391cc5cc",
-	"projectname": "%E5%8D%8E%E8%AE%AF%E7%94%9F%E7%89%A9%E5%9C%88v3",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "快讯",
-					"pathName": "pages/info/info",
-					"query": ""
-				},
-				{
-					"id": 2,
-					"name": "活动",
-					"pathName": "pages/meet/meet",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "服务",
-					"pathName": "pages/serve/serve",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "商圈",
-					"pathName": "pages/roster/roster",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "文章",
-					"pathName": "pages/article/article",
-					"query": "article_id=222390"
-				},
-				{
-					"id": -1,
-					"name": "服务绑定",
-					"pathName": "pages/serve_bind/serve_bind",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "商圈明细",
-					"pathName": "pages/roster_info/roster_info",
-					"query": ""
-				}
-			]
-		}
-	}
+    "description": "项目配置文件。",
+    "packOptions": {
+        "ignore": []
+    },
+    "setting": {
+        "urlCheck": true,
+        "es6": true,
+        "enhance": true,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": true,
+        "coverView": true,
+        "nodeModules": true,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
+        "useApiHostProcess": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "enableEngineNative": false,
+        "bundle": false,
+        "useIsolateContext": true,
+        "useCompilerModule": true,
+        "userConfirmedUseCompilerModuleSwitch": false,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.11.0",
+    "appid": "wx51930c31391cc5cc",
+    "projectname": "%E5%8D%8E%E8%AE%AF%E7%94%9F%E7%89%A9%E5%9C%88v3",
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "search": {
+            "list": []
+        },
+        "conversation": {
+            "list": []
+        },
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "currentL": -1,
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "id": -1,
+                    "name": "快讯",
+                    "pathName": "pages/info/info",
+                    "query": ""
+                },
+                {
+                    "id": 2,
+                    "name": "活动",
+                    "pathName": "pages/meet/meet",
+                    "query": ""
+                },
+                {
+                    "id": -1,
+                    "name": "服务",
+                    "pathName": "pages/serve/serve",
+                    "query": ""
+                },
+                {
+                    "id": -1,
+                    "name": "商圈",
+                    "pathName": "pages/roster/roster",
+                    "query": ""
+                },
+                {
+                    "id": -1,
+                    "name": "文章",
+                    "pathName": "pages/article/article",
+                    "query": "article_id=222390"
+                },
+                {
+                    "id": -1,
+                    "name": "服务绑定",
+                    "pathName": "pages/serve_bind/serve_bind",
+                    "query": ""
+                },
+                {
+                    "id": -1,
+                    "name": "商圈明细",
+                    "pathName": "pages/roster_info/roster_info",
+                    "query": ""
+                }
+            ]
+        }
+    }
 }

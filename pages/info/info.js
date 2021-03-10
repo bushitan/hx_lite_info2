@@ -21,22 +21,7 @@ Page({
 
         bannerList:[],
     },
-    change() {
-        wx.redirectTo({
-            url: '/pages/industry/industry',
-        })
-        // wx.navigateTo({
-        //     url: '/pages/industry/industry',
-        // })
-    },
-
-    onInit(options){
-        GP.getCategoryList(GP.data.industryID)
-        GP.getHXUserID()//过去HX大平台的用户id
-
-
-        GP.switchSwiper()
-    },
+   
     //更改轮播图
     async switchSwiper(){
        
@@ -106,12 +91,21 @@ Page({
             url: API.API_USER_CHECK,
             method: "POST",
             data: { openid: wx.getStorageSync(API.KEY_OPENID),},
-            success: function (res) {
+            success: function (res) {                
                 if (res.data.status.code == 11013)
                     wx.setStorageSync(API.KEY_HX_UID, "")  //没有权限，重置
                 else
                     wx.setStorageSync(API.KEY_HX_UID, res.data.data.uid)
 
+                            
+                var hx_uid = wx.getStorageSync(API.KEY_HX_UID)
+                
+                if(hx_uid){
+
+                    wx.setNavigationBarTitle({
+                        title: '华讯生物圈（ID' + hx_uid + "）",
+                    })
+                }
             },
         })
     },
@@ -191,6 +185,7 @@ Page({
      */
     onLoad: function (options) {
         GP = this
+        this.refreshStatus()
         if (options.industry_id == undefined){
             var industry_id = wx.getStorageSync(API.KEY_INDUSTRYID)
             if (industry_id == ""){
@@ -209,8 +204,40 @@ Page({
         GP.onInit()
 
         GP.showDialog()
+
         // GP.getArticleList(1, 3, 20, 1)
     },
+
+    
+    change() {
+        wx.redirectTo({
+            url: '/pages/industry/industry',
+        })
+        // wx.navigateTo({
+        //     url: '/pages/industry/industry',
+        // })
+    },
+
+    refreshStatus(){
+
+        API.Request({
+            url: API.API_INFO_GET_CATEGORY_LIST,
+            method: "POST",
+            data: { industry_id: 1},
+           
+        })
+        
+        GP.getHXUserID()//过去HX大平台的用户id
+        // GP.switchSwiper()
+    },
+
+    onInit(options){
+        GP.getCategoryList(GP.data.industryID)
+        GP.getHXUserID()//过去HX大平台的用户id
+        GP.switchSwiper()
+    },
+
+
     showDialog(){
         // wx.showModal({
         //     title: '温馨提示',
